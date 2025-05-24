@@ -9,3 +9,6 @@
 
 ## 📌 Deskripsi Proyek
 **SmartSaku** adalah aplikasi web berbasis kecerdasan buatan yang dirancang khusus untuk membantu mahasiswa dalam mengelola keuangan pribadi secara cerdas, praktis, dan efisien. Proyek ini dikembangkan sebagai bagian dari Capstone Project di program Coding Camp DBS Foundation 2025. SmartSaku menghadirkan fitur utama seperti pencatatan keuangan harian, prediksi pengeluaran bulanan, rekomendasi penghematan berbasis kebiasaan, serta gamifikasi keuangan untuk mendorong perilaku finansial yang sehat. Selain itu, SmartSaku juga dilengkapi dengan deteksi anomali finansial dan asisten virtual berbasis AI untuk menjawab pertanyaan keuangan mahasiswa. Dengan dukungan teknologi Machine Learning dan NLP, SmartSaku bertujuan menjadi solusi manajemen keuangan yang ringan namun berdampak besar bagi generasi mahasiswa masa kini.
+
+Saling support, saling bantu, saling develop.  
+Baca [CONTRIBUTING.md](./CONTRIBUTING.md) sebelum kerja.
