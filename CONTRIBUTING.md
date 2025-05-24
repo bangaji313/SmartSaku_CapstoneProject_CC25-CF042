@@ -68,9 +68,11 @@ git push origin main
 
 ### 6. Setelah Merge, Hapus Branch
 ```bash
-git checkout main
-git pull origin main
+# Hapus branch lokal
 git branch -d fitur/onboarding
+
+# Hapus branch remote
+git push origin --delete fitur/onboarding
 ```
 ✅ Supaya workspace kamu tetap bersih
 
