@@ -58,13 +58,13 @@ git push origin fitur/onboarding
 - Klik *“Create Pull Request”*
 - Review bersama, lalu merge ke main setelah yakin tidak bug
 
----
-
 ### 5.5. Merge ke Main
 ```bash
 git merge fitur/onboarding
 git push origin main
 ```
+
+---
 
 ### 6. Setelah Merge, Hapus Branch
 ```bash
