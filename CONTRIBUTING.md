@@ -37,7 +37,7 @@ git checkout -b fitur/onboarding
 ### 3. Kerjakan Fitur/Perbaikan
 - Coding sesuai tugas
 - Jangan ubah file orang lain yang tidak sedang kamu kerjakan
-- Test hasilnya di emulator sebelum commit
+- Test hasilnya di local sebelum commit
 
 ---
 
