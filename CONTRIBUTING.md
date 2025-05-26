@@ -20,6 +20,8 @@ Memastikan kolaborasi Capstone Project SmartSaku tim CC25-CF042 berjalan lancar,
 ### 1. Sebelum Mulai Kerja
 ```bash
 git checkout main
+```
+```bash
 git pull origin main
 ```
 ✅ Tujuannya: Pastikan kamu kerja dari kode terbaru.
@@ -44,7 +46,11 @@ git checkout -b fitur/onboarding
 ### 4. Simpan Perubahan dan Upload
 ```bash
 git add .
+```
+```bash
 git commit -m "Tambah halaman onboarding dengan animasi"
+```
+```bash
 git push origin fitur/onboarding
 ```
 ✅ Gunakan pesan commit yang jelas.
@@ -61,6 +67,8 @@ git push origin fitur/onboarding
 ### 5.5. Merge ke Main
 ```bash
 git merge fitur/onboarding
+```
+```bash
 git push origin main
 ```
 
@@ -70,7 +78,8 @@ git push origin main
 ```bash
 # Hapus branch lokal
 git branch -d fitur/onboarding
-
+```
+```bash
 # Hapus branch remote
 git push origin --delete fitur/onboarding
 ```
