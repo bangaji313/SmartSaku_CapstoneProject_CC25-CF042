@@ -1,1 +1,1 @@
-console.log("hack this site");
+console.log("hack tchis site");
