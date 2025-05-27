@@ -1,0 +1,55 @@
+/* Custom styles for SmartSaku */
+:root {
+  --primary-color: #08daff;
+  --secondary-color: #6c757d;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  margin-bottom: 100px; /* Space for footer */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: var(--primary-color) !important;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 10px 20px;
+}
+
+.btn-primary:hover {
+  background-color: #08daff;
+  border-color: #08daff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .hidden-hero-section {
+    display: none;
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
+}

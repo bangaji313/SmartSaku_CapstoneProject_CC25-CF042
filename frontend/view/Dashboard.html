@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - SmartSaku</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../js/tailwind.config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/custom.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-br from-light via-white to-blue-50 min-h-screen flex"
+  >
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50">
+      <!-- Logo -->
+      <div class="px-6 py-5 border-b border-gray-200">
+        <a href="../index.html" class="flex items-center">
+          <img
+            src="../images/Logo.png"
+            alt="SmartSaku Logo"
+            class="h-8 w-auto mr-2"
+          />
+          <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+        </a>
+      </div>
+
+      <!-- User Profile -->
+      <div class="px-6 py-5 border-b border-gray-200">
+        <div class="flex items-center space-x-3">
+          <div class="p-1 rounded-full border-2 border-gray-200">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+              alt="Profile"
+              class="w-8 h-8 rounded-full"
+            />
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">Andhika Fajar</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="px-4 py-4">
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="#"
+              class="flex items-center space-x-3 p-3 rounded-md bg-indigo-100 text-indigo-600 font-medium"
+            >
+              <div class="bg-white p-1.5 rounded shadow-sm">
+                <i class="fas fa-chart-line text-indigo-600"></i>
+              </div>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+            >
+              <div class="bg-white p-1.5 rounded shadow-sm">
+                <i class="fas fa-plug text-gray-600"></i>
+              </div>
+              <span>Perangkat</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+            >
+              <div class="bg-white p-1.5 rounded shadow-sm">
+                <i class="fas fa-bell text-gray-600"></i>
+              </div>
+              <span>Notifikasi</span>
+              <span
+                class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+            >
+              <div class="bg-white p-1.5 rounded shadow-sm">
+                <i class="fas fa-gift text-gray-600"></i>
+              </div>
+              <span>Hadiah</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+            >
+              <div class="bg-white p-1.5 rounded shadow-sm">
+                <i class="fas fa-chart-bar text-gray-600"></i>
+              </div>
+              <span>Ringkasan</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Logout Button -->
+      <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+        <a
+          href="../index.html"
+          class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-sign-out-alt text-gray-600"></i>
+          </div>
+          <span>Keluar</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="ml-64 flex-1 p-8">
+      <!-- Welcome Section -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">
+          Selamat datang kembali, Badjingan! 👋
+        </h1>
+        <p class="text-gray-600">Ini adalah ringkasan keuangan Anda hari ini</p>
+      </div>
+
+      <!-- Quick Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Saldo Saat Ini</p>
+              <p class="text-2xl font-bold text-gray-900">Rp 1.250.000</p>
+              <p class="text-green-500 text-sm mt-1">
+                <i class="fas fa-arrow-up"></i> +5.2% dari bulan lalu
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-r from-primary to-secondary p-3 rounded-xl"
+            >
+              <i class="fas fa-wallet text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Pengeluaran Bulan Ini</p>
+              <p class="text-2xl font-bold text-gray-900">Rp 850.000</p>
+              <p class="text-red-500 text-sm mt-1">
+                <i class="fas fa-arrow-down"></i> -12% dari target
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-r from-red-400 to-red-500 p-3 rounded-xl"
+            >
+              <i class="fas fa-credit-card text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Target Tabungan</p>
+              <p class="text-2xl font-bold text-gray-900">Rp 400.000</p>
+              <p class="text-primary text-sm mt-1">
+                <i class="fas fa-target"></i> 75% tercapai
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-r from-green-400 to-green-500 p-3 rounded-xl"
+            >
+              <i class="fas fa-piggy-bank text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Level Keuangan</p>
+              <p class="text-xl font-bold text-primary">Budget Warrior</p>
+              <div class="flex items-center mt-1">
+                <div class="flex text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-gradient-to-r from-yellow-400 to-orange-500 p-3 rounded-xl"
+            >
+              <i class="fas fa-trophy text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Cash Flow Chart -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold text-gray-900">Arus Kas Bulanan</h2>
+              <select
+                class="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              >
+                <option>3 Bulan Terakhir</option>
+                <option>6 Bulan Terakhir</option>
+                <option>1 Tahun Terakhir</option>
+              </select>
+            </div>
+            <div class="relative h-80">
+              <canvas id="cashFlowChart"></canvas>
+            </div>
+          </div>
+          <!-- Expense Categories -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <h2 class="text-xl font-bold text-gray-900 mb-6">
+              Kategori Pengeluaran
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Category List -->
+              <div class="space-y-3">
+                <div
+                  class="flex items-center justify-between p-3 bg-red-50 rounded-xl hover:bg-red-100 transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-red-100 p-2 rounded-lg">
+                      <i class="fas fa-utensils text-red-500"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-gray-900">Makanan</p>
+                      <p class="text-sm text-gray-600">12 transaksi</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-gray-900">Rp 280k</p>
+                    <p class="text-sm text-red-500">35%</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center justify-between p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-blue-100 p-2 rounded-lg">
+                      <i class="fas fa-car text-blue-500"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-gray-900">Transport</p>
+                      <p class="text-sm text-gray-600">18 transaksi</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-gray-900">Rp 200k</p>
+                    <p class="text-sm text-blue-500">25%</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center justify-between p-3 bg-green-50 rounded-xl hover:bg-green-100 transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-green-100 p-2 rounded-lg">
+                      <i class="fas fa-graduation-cap text-green-500"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-gray-900">Pendidikan</p>
+                      <p class="text-sm text-gray-600">4 transaksi</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-gray-900">Rp 160k</p>
+                    <p class="text-sm text-green-500">20%</p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-center justify-between p-3 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors"
+                >
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-purple-100 p-2 rounded-lg">
+                      <i class="fas fa-gamepad text-purple-500"></i>
+                    </div>
+                    <div>
+                      <p class="font-semibold text-gray-900">Lainnya</p>
+                      <p class="text-sm text-gray-600">6 transaksi</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-bold text-gray-900">Rp 160k</p>
+                    <p class="text-sm text-purple-500">20%</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category Chart -->
+              <div class="flex items-center justify-center">
+                <div class="relative">
+                  <canvas id="categoryChart" width="200" height="200"></canvas>
+                  <div
+                    class="absolute inset-0 flex items-center justify-center"
+                  >
+                    <div class="text-center">
+                      <p class="text-2xl font-bold text-gray-900">Rp 800k</p>
+                      <p class="text-sm text-gray-600">Total</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Goals -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold text-gray-900">Target Finansial</h2>
+              <button class="text-primary hover:text-secondary add-goal-btn">
+                <i class="fas fa-plus"></i> Tambah Target
+              </button>
+            </div>
+            <div class="space-y-4 financial-goals-container">
+              <div class="p-4 border border-gray-200 rounded-xl">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold text-gray-900">📱 iPhone 15</h3>
+                  <span class="text-sm text-gray-600">30% tercapai</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                  <div
+                    class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
+                    style="width: 30%"
+                  ></div>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Rp 3.000.000 / Rp 10.000.000</span>
+                  <span>~8 bulan lagi</span>
+                </div>
+              </div>
+
+              <div class="p-4 border border-gray-200 rounded-xl">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold text-gray-900">🏍️ Motor Bekas</h3>
+                  <span class="text-sm text-gray-600">65% tercapai</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                  <div
+                    class="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full"
+                    style="width: 65%"
+                  ></div>
+                </div>
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span>Rp 9.750.000 / Rp 15.000.000</span>
+                  <span>~3 bulan lagi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8">
+          <!-- AI Recommendations -->
+          <div
+            class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-6 border border-primary/20"
+          >
+            <div class="flex items-center space-x-2 mb-4">
+              <i class="fas fa-robot text-primary"></i>
+              <h2 class="text-xl font-bold text-gray-900">
+                Rekomendasi AI Hari Ini
+              </h2>
+            </div>
+            <div class="space-y-4 ai-recommendations-container">
+              <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4">
+                <div class="flex items-start space-x-3">
+                  <div class="bg-yellow-100 p-2 rounded-lg flex-shrink-0">
+                    <i class="fas fa-coffee text-yellow-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Tips Hemat Coffee
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                      Kurangi kopi kekinian 2x/minggu = hemat Rp80.000/bulan
+                    </p>
+                    <span
+                      class="bg-primary/20 text-primary text-xs px-2 py-1 rounded-full"
+                      >Potensi hemat: Rp80k</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4">
+                <div class="flex items-start space-x-3">
+                  <div class="bg-green-100 p-2 rounded-lg flex-shrink-0">
+                    <i class="fas fa-motorcycle text-green-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Promo Transport
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                      Ada promo Gojek 50% untuk rute kampus-mall hari ini!
+                    </p>
+                    <span
+                      class="bg-green-100 text-green-600 text-xs px-2 py-1 rounded-full"
+                      >Hemat sekarang</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4">
+                <div class="flex items-start space-x-3">
+                  <div class="bg-blue-100 p-2 rounded-lg flex-shrink-0">
+                    <i class="fas fa-chart-line text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Prediksi Pengeluaran
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-2">
+                      Jika seperti ini terus, sisa uang akhir bulan: Rp350.000
+                    </p>
+                    <span
+                      class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full"
+                      >Perlu perhatian</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anomaly Detection -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <div class="flex items-center space-x-2 mb-4">
+              <i class="fas fa-exclamation-triangle text-orange-500"></i>
+              <h2 class="text-xl font-bold text-gray-900">Deteksi Anomali</h2>
+            </div>
+            <div class="space-y-3 anomaly-detection-container">
+              <div
+                class="flex items-center p-3 bg-orange-50 rounded-lg border border-orange-200"
+              >
+                <i class="fas fa-car text-orange-500 mr-3"></i>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">
+                    Pengeluaran Transport Tinggi
+                  </p>
+                  <p class="text-xs text-gray-600">
+                    200% lebih tinggi dari biasanya hari ini
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-center p-3 bg-red-50 rounded-lg border border-red-200"
+              >
+                <i class="fas fa-shopping-bag text-red-500 mr-3"></i>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">
+                    Pembelian Impulsif
+                  </p>
+                  <p class="text-xs text-gray-600">
+                    3 transaksi beruntun dalam 2 jam
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Transactions -->
+          <div
+            class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-gray-900">Transaksi Terbaru</h2>
+              <a href="#" class="text-primary text-sm hover:text-secondary"
+                >Lihat Semua</a
+              >
+            </div>
+            <div class="space-y-3">
+              <div
+                class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="bg-red-100 p-2 rounded-lg">
+                    <i class="fas fa-coffee text-red-500"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900">Starbucks</p>
+                    <p class="text-xs text-gray-600">Makanan & Minuman</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-semibold text-red-500">-Rp 45.000</p>
+                  <p class="text-xs text-gray-600">2 jam yang lalu</p>
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="bg-blue-100 p-2 rounded-lg">
+                    <i class="fas fa-bus text-blue-500"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900">TransJakarta</p>
+                    <p class="text-xs text-gray-600">Transport</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-semibold text-red-500">-Rp 3.500</p>
+                  <p class="text-xs text-gray-600">4 jam yang lalu</p>
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="bg-green-100 p-2 rounded-lg">
+                    <i class="fas fa-plus text-green-500"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium text-gray-900">Uang Saku Mama</p>
+                    <p class="text-xs text-gray-600">Pemasukan</p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="font-semibold text-green-500">+Rp 500.000</p>
+                  <p class="text-xs text-gray-600">Kemarin</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Achievement -->
+          <div
+            class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-200"
+          >
+            <div class="flex items-center space-x-2 mb-4">
+              <i class="fas fa-trophy text-yellow-500"></i>
+              <h2 class="text-xl font-bold text-gray-900">Pencapaian</h2>
+            </div>
+            <div class="space-y-3">
+              <div class="bg-white/70 rounded-lg p-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-medium">Target Bulanan</span>
+                  <span class="text-sm text-primary">75%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                  <div
+                    class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+              <div class="bg-white/70 rounded-lg p-3">
+                <p class="text-sm font-medium mb-1">Badge Terbaru</p>
+                <div class="flex items-center space-x-2">
+                  <span
+                    class="bg-yellow-100 text-yellow-600 text-xs px-2 py-1 rounded-full"
+                    >🎯 Hemat Expert</span
+                  >
+                  <span
+                    class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full"
+                    >📊 Data Analyst</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Chat Assistant (Floating) -->
+      <div class="fixed bottom-6 right-6 z-40">
+        <button
+          id="chatToggle"
+          class="bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+        >
+          <i class="fas fa-comments text-xl"></i>
+        </button>
+      </div>
+
+      <!-- AI Chat Window -->
+      <div
+        id="chatWindow"
+        class="fixed bottom-24 right-6 w-80 bg-white rounded-2xl shadow-2xl border border-gray-200 z-30 hidden"
+      >
+        <div
+          class="bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-t-2xl"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-robot"></i>
+              <h3 class="font-semibold">AI Assistant</h3>
+            </div>
+            <button id="chatClose" class="hover:bg-white/20 p-1 rounded">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="p-4 h-80 overflow-y-auto space-y-3">
+          <div class="bg-gray-100 rounded-lg p-3">
+            <p class="text-sm">
+              Halo! Saya AI Assistant SmartSaku. Ada yang bisa saya bantu
+              tentang keuangan Anda?
+            </p>
+          </div>
+          <div class="bg-primary/10 rounded-lg p-3 ml-8">
+            <p class="text-sm">Gimana caranya nabung sambil bayar cicilan?</p>
+          </div>
+          <div class="bg-gray-100 rounded-lg p-3">
+            <p class="text-sm">Berikut tips nabung sambil bayar cicilan:</p>
+            <ul class="text-xs mt-2 space-y-1">
+              <li>• Buat budget 50-30-20 (kebutuhan-keinginan-tabungan)</li>
+              <li>• Prioritaskan cicilan di awal bulan</li>
+              <li>• Gunakan metode "pay yourself first"</li>
+              <li>• Cari penghasilan tambahan</li>
+            </ul>
+          </div>
+        </div>
+        <div class="p-4 border-t border-gray-200">
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              placeholder="Ketik pertanyaan..."
+              class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent chat-input"
+            />
+            <button
+              class="bg-primary text-white p-2 rounded-lg hover:bg-secondary chat-send"
+            >
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Load dashboard configuration and utilities first -->
+    <script src="../js/dashboard-config.js"></script>
+    <script src="../js/dashboard-utils.js"></script>
+
+    <!-- Load all dashboard modules -->
+    <script src="../js/dashboard-charts.js"></script>
+    <script src="../js/ai-recommendations.js"></script>
+    <script src="../js/anomaly-detection.js"></script>
+    <script src="../js/financial-goals.js"></script>
+    <script src="../js/ai-chat.js"></script>
+    <script src="../js/dashboard-main.js"></script>
+  </body>
+</html>
