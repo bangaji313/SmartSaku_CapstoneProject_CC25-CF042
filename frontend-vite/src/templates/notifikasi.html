@@ -1,0 +1,438 @@
+<!-- Notifikasi Page Template -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50">
+    <!-- Logo -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <a href="/" class="flex items-center">
+        <img
+          src="/src/images/Logo.png"
+          alt="SmartSaku Logo"
+          class="h-8 w-auto mr-2"
+        />
+        <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+      </a>
+    </div>
+
+    <!-- User Profile -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <div class="flex items-center space-x-3">
+        <div class="p-1 rounded-full border-2 border-gray-200">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+            alt="Profile"
+            class="w-8 h-8 rounded-full"
+          />
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">Andhika Fajar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="px-4 py-4">
+      <ul class="space-y-4">
+        <li>
+          <a
+            href="/dashboard.html"
+            class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-line text-gray-600"></i>
+            </div>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/report.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-plug text-gray-600"></i>
+            </div>
+            <span>Report</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/notifikasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md bg-indigo-100 text-indigo-600 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-bell text-indigo-600"></i>
+            </div>
+            <span>Notifikasi</span>
+            <span
+              class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >3</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            href="/simulasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-gift text-gray-600"></i>
+            </div>
+            <span>Simulasi</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/profil.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-bar text-gray-600"></i>
+            </div>
+            <span>Profil</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Logout Button -->
+    <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+      <a
+        href="/login.html"
+        class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+      >
+        <div class="bg-white p-1.5 rounded shadow-sm">
+          <i class="fas fa-sign-out-alt text-gray-600"></i>
+        </div>
+        <span>Keluar</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="ml-64 flex-1 p-8">
+    <!-- Notifikasi Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Notifikasi</h1>
+      <div class="flex items-center justify-between">
+        <p class="text-gray-600">
+          Pemberitahuan dan alert terkait keuangan Anda
+        </p>
+        <div class="flex space-x-3">
+          <select
+            class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <option>Semua Notifikasi</option>
+            <option>Penting</option>
+            <option>Peringatan</option>
+            <option>Info</option>
+          </select>
+          <button
+            class="border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-100"
+          >
+            <i class="fas fa-check-double mr-2"></i> Tandai Semua Dibaca
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifikasi List -->
+    <div class="space-y-4">
+      <!-- Penting Notification -->
+      <div
+        class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-l-red-500"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-start space-x-4">
+            <div class="bg-red-100 p-3 rounded-full">
+              <i class="fas fa-exclamation-triangle text-red-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <h3 class="font-semibold text-gray-900">
+                  Pengeluaran Melebihi Batas
+                </h3>
+                <span
+                  class="bg-red-100 text-red-600 text-xs font-medium px-2 py-0.5 rounded-full"
+                  >Penting</span
+                >
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Pengeluaran transportasi Anda bulan ini melebihi batas yang
+                telah ditetapkan. Ini adalah 200% dari pengeluaran biasa Anda.
+              </p>
+              <p class="text-gray-400 text-xs">Hari ini, 10:35</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning Notification -->
+      <div
+        class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-l-orange-400"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-start space-x-4">
+            <div class="bg-orange-100 p-3 rounded-full">
+              <i class="fas fa-shopping-bag text-orange-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <h3 class="font-semibold text-gray-900">Pembelian Impulsif</h3>
+                <span
+                  class="bg-orange-100 text-orange-600 text-xs font-medium px-2 py-0.5 rounded-full"
+                  >Peringatan</span
+                >
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Kami mendeteksi 3 transaksi beruntun dalam 2 jam terakhir. Ini
+                mungkin indikasi pembelian impulsif.
+              </p>
+              <p class="text-gray-400 text-xs">Hari ini, 15:20</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Notification -->
+      <div
+        class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-l-blue-500"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-start space-x-4">
+            <div class="bg-blue-100 p-3 rounded-full">
+              <i class="fas fa-piggy-bank text-blue-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <h3 class="font-semibold text-gray-900">
+                  Target Tabungan Tercapai
+                </h3>
+                <span
+                  class="bg-blue-100 text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full"
+                  >Info</span
+                >
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Selamat! Anda telah mencapai 75% dari target tabungan bulan ini.
+                Teruskan kebiasaan baik Anda!
+              </p>
+              <p class="text-gray-400 text-xs">Kemarin, 09:25</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tip Notification -->
+      <div
+        class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-l-green-500"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-start space-x-4">
+            <div class="bg-green-100 p-3 rounded-full">
+              <i class="fas fa-lightbulb text-green-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <h3 class="font-semibold text-gray-900">Tips Hemat Hari Ini</h3>
+                <span
+                  class="bg-green-100 text-green-600 text-xs font-medium px-2 py-0.5 rounded-full"
+                  >Tips</span
+                >
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                Ada promo Go-Food diskon 50% hari ini. Pakai kode HEMAT50 untuk
+                menghemat pengeluaran makanan Anda!
+              </p>
+              <p class="text-gray-400 text-xs">Kemarin, 18:45</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reminder Notification -->
+      <div
+        class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-l-purple-500"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex items-start space-x-4">
+            <div class="bg-purple-100 p-3 rounded-full">
+              <i class="fas fa-bell text-purple-500"></i>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <h3 class="font-semibold text-gray-900">
+                  Pengingat Pembayaran UKT
+                </h3>
+                <span
+                  class="bg-purple-100 text-purple-600 text-xs font-medium px-2 py-0.5 rounded-full"
+                  >Pengingat</span
+                >
+              </div>
+              <p class="text-gray-600 text-sm mb-2">
+                UKT semester depan harus dibayar sebelum 30 Juni 2023. Pastikan
+                tabungan Anda mencukupi!
+              </p>
+              <p class="text-gray-400 text-xs">2 hari yang lalu</p>
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="text-gray-500 hover:text-gray-700 p-1">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Settings Card -->
+    <div class="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-bold text-gray-900">Pengaturan Notifikasi</h2>
+        <button class="text-primary hover:text-secondary">
+          Simpan Perubahan
+        </button>
+      </div>
+      <div class="space-y-4">
+        <div
+          class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+        >
+          <div>
+            <p class="font-medium text-gray-900">
+              Notifikasi Pengeluaran Berlebih
+            </p>
+            <p class="text-sm text-gray-600">
+              Dapatkan peringatan saat pengeluaran melebihi batas
+            </p>
+          </div>
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              class="form-checkbox h-5 w-5 text-primary"
+              checked
+            />
+          </label>
+        </div>
+        <div
+          class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+        >
+          <div>
+            <p class="font-medium text-gray-900">Tips Hemat Mingguan</p>
+            <p class="text-sm text-gray-600">Terima tips hemat setiap minggu</p>
+          </div>
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              class="form-checkbox h-5 w-5 text-primary"
+              checked
+            />
+          </label>
+        </div>
+        <div
+          class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+        >
+          <div>
+            <p class="font-medium text-gray-900">Pengingat Target Finansial</p>
+            <p class="text-sm text-gray-600">
+              Ingatkan tentang progres target finansial
+            </p>
+          </div>
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              class="form-checkbox h-5 w-5 text-primary"
+              checked
+            />
+          </label>
+        </div>
+        <div
+          class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+        >
+          <div>
+            <p class="font-medium text-gray-900">Email Laporan Bulanan</p>
+            <p class="text-sm text-gray-600">Kirim laporan bulanan via email</p>
+          </div>
+          <label class="inline-flex items-center">
+            <input type="checkbox" class="form-checkbox h-5 w-5 text-primary" />
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+      import { initSidebar } from "../js/sidebar.js";
+
+      // Initialize sidebar when DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Notifikasi page: DOM loaded, initializing sidebar...");
+        initSidebar();
+
+        // Add notification functionality
+        initNotifikasiPage();
+      });
+
+      function initNotifikasiPage() {
+        // Check buttons
+        const checkButtons = document.querySelectorAll("button i.fas.fa-check");
+        checkButtons.forEach((button) => {
+          button.parentElement.addEventListener("click", function () {
+            const notification = this.closest(".rounded-2xl");
+            notification.style.opacity = "0.5";
+            setTimeout(() => {
+              notification.style.display = "none";
+            }, 500);
+          });
+        });
+
+        // Delete buttons
+        const deleteButtons = document.querySelectorAll(
+          "button i.fas.fa-trash"
+        );
+        deleteButtons.forEach((button) => {
+          button.parentElement.addEventListener("click", function () {
+            const notification = this.closest(".rounded-2xl");
+            notification.style.opacity = "0.5";
+            setTimeout(() => {
+              notification.style.display = "none";
+            }, 500);
+          });
+        });
+      }
+    </script>
+  </div>
+</div>

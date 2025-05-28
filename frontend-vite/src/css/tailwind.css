@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom utility classes */
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full
+    hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply border-2 border-primary text-primary px-6 py-3 rounded-full
+    hover:bg-primary hover:text-white transition-all duration-300;
+}
+
+/* Animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
