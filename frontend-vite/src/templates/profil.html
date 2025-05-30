@@ -1,0 +1,509 @@
+<!-- Profil Page Template -->
+<!-- Include Mobile Header -->
+<div class="mobile-header hidden">
+  <button
+    type="button"
+    class="hamburger-menu"
+    id="hamburgerMenu"
+    onclick="showSidebar()"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="flex items-center">
+    <img
+      src="/src/images/Logo.png"
+      alt="SmartSaku Logo"
+      class="h-8 w-auto mr-2"
+    />
+    <span class="text-xl font-bold text-gray-800">SmartSaku</span>
+  </div>
+  <div class="w-10"></div>
+  <!-- Spacer untuk balance -->
+</div>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="hideSidebar()"></div>
+
+<!-- Include Sidebar -->
+<aside
+  class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50"
+  id="sidebar"
+>
+  <!-- Tombol tutup menu (hanya muncul di mobile) -->
+  <div class="close-menu hidden">
+    <button
+      class="p-2 text-gray-500 hover:text-gray-700"
+      id="closeMenu"
+      onclick="hideSidebar()"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <!-- Logo -->
+  <div class="px-6 py-5 border-b border-gray-200">
+    <a href="/" class="flex items-center">
+      <img
+        src="/src/images/Logo.png"
+        alt="SmartSaku Logo"
+        class="h-8 w-auto mr-2"
+      />
+      <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+    </a>
+  </div>
+
+  <!-- User Profile -->
+  <div class="px-6 py-5 border-b border-gray-200">
+    <div class="flex items-center space-x-3">
+      <div class="p-1 rounded-full border-2 border-gray-200">
+        <img
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+          alt="Profile"
+          class="w-8 h-8 rounded-full"
+        />
+      </div>
+      <div>
+        <p class="font-medium text-gray-800">Andhika Fajar</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="px-4 py-4">
+    <ul class="space-y-4">
+      <li>
+        <a
+          href="/dashboard"
+          class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-chart-line text-gray-600"></i>
+          </div>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/report"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-plug text-gray-600"></i>
+          </div>
+          <span>Report</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/notifikasi"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-bell text-gray-600"></i>
+          </div>
+          <span>Notifikasi</span>
+          <span
+            class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+            >3</span
+          >
+        </a>
+      </li>
+      <li>
+        <a
+          href="/simulasi"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-gift text-gray-600"></i>
+          </div>
+          <span>Simulasi</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/profil"
+          class="w-full flex items-center space-x-3 p-3 rounded-md bg-indigo-100 text-indigo-600 font-medium"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-user text-indigo-600"></i>
+          </div>
+          <span>Profil</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Logout Button -->
+  <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+    <a
+      href="/login"
+      class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+    >
+      <div class="bg-white p-1.5 rounded shadow-sm">
+        <i class="fas fa-sign-out-alt text-gray-600"></i>
+      </div>
+      <span>Keluar</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<div class="ml-64 flex-1 p-8">
+  <!-- Profil Section -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Profil Saya</h1>
+    <p class="text-gray-600">Pengaturan profil dan preferensi Anda</p>
+  </div>
+
+  <!-- Profil Card -->
+  <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mb-8">
+    <div class="flex justify-between items-start mb-8">
+      <div class="flex items-center space-x-6">
+        <div class="relative">
+          <div class="w-24 h-24 rounded-full bg-gray-200 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+              alt="Profile"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <button
+            class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all"
+          >
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">Andhika Fajar</h2>
+          <p class="text-gray-600">Mahasiswa</p>
+          <div class="mt-2 flex items-center space-x-3">
+            <button
+              class="flex items-center space-x-1 text-primary hover:text-secondary transition-all"
+            >
+              <i class="fas fa-pencil-alt"></i>
+              <span>Edit Profil</span>
+            </button>
+            <button
+              class="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-all"
+            >
+              <i class="fas fa-eye"></i>
+              <span>Lihat Publik</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        class="bg-primary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all"
+      >
+        <i class="fas fa-save mr-1"></i> Simpan Perubahan
+      </button>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Personal Info -->
+      <div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          Informasi Pribadi
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Nama Lengkap</label
+            >
+            <input
+              type="text"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              value="Andhika Fajar"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Email</label
+            >
+            <input
+              type="email"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              value="andhika.fajar@example.com"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >No. Telepon</label
+            >
+            <input
+              type="tel"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              value="081234567890"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Pekerjaan</label
+            >
+            <input
+              type="text"
+              class="w-full border border-gray-300 rounded-lg p-2"
+              value="Mahasiswa"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Financial Info -->
+      <div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+          Informasi Keuangan
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Level Keuangan</label
+            >
+            <div class="flex items-center space-x-2">
+              <div
+                class="py-2 px-3 bg-primary/10 text-primary font-medium rounded-lg"
+              >
+                Budget Warrior
+              </div>
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Poin Reward</label
+            >
+            <div class="flex items-center space-x-2">
+              <div
+                class="py-2 px-3 bg-yellow-50 text-yellow-600 font-medium rounded-lg"
+              >
+                1,250 poin
+              </div>
+              <button
+                class="text-primary hover:text-secondary transition-all text-sm"
+              >
+                Tukar Poin
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1"
+              >Bergabung Sejak</label
+            >
+            <div
+              class="py-2 px-3 bg-gray-50 text-gray-700 font-medium rounded-lg"
+            >
+              Januari 2023
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Achievements -->
+  <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 mb-8">
+    <h3 class="text-xl font-semibold text-gray-900 mb-6">Koleksi Badge</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="flex flex-col items-center">
+        <div
+          class="w-16 h-16 flex items-center justify-center bg-yellow-100 rounded-full mb-2"
+        >
+          <i class="fas fa-trophy text-2xl text-yellow-500"></i>
+        </div>
+        <span class="text-sm font-medium">Hemat Expert</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <div
+          class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-2"
+        >
+          <i class="fas fa-chart-line text-2xl text-blue-500"></i>
+        </div>
+        <span class="text-sm font-medium">Data Analyst</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <div
+          class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-2"
+        >
+          <i class="fas fa-seedling text-2xl text-green-500"></i>
+        </div>
+        <span class="text-sm font-medium">Budget Planner</span>
+      </div>
+      <div class="flex flex-col items-center opacity-50">
+        <div
+          class="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full mb-2"
+        >
+          <i class="fas fa-lock text-2xl text-gray-500"></i>
+        </div>
+        <span class="text-sm font-medium">Terkunci</span>
+      </div>
+      <div class="flex flex-col items-center opacity-50">
+        <div
+          class="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full mb-2"
+        >
+          <i class="fas fa-lock text-2xl text-gray-500"></i>
+        </div>
+        <span class="text-sm font-medium">Terkunci</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preferences -->
+  <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+    <h3 class="text-xl font-semibold text-gray-900 mb-6">Preferensi Akun</h3>
+    <div class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h4 class="font-medium text-gray-900">Notifikasi Email</h4>
+          <p class="text-sm text-gray-600">
+            Terima email untuk aktivitas penting
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" checked />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <h4 class="font-medium text-gray-900">Notifikasi Push</h4>
+          <p class="text-sm text-gray-600">
+            Terima notifikasi untuk transaksi baru
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" checked />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <h4 class="font-medium text-gray-900">Mode Gelap</h4>
+          <p class="text-sm text-gray-600">Gunakan tema gelap untuk aplikasi</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="flex items-center justify-between">
+        <div>
+          <h4 class="font-medium text-gray-900">Analisis AI</h4>
+          <p class="text-sm text-gray-600">
+            Aktifkan analisis keuangan menggunakan AI
+          </p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" checked />
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Fallback functions (akan digantikan oleh mobile-menu.js)
+  if (typeof showSidebar !== "function") {
+    window.showSidebar = function () {
+      console.log("Showing sidebar (fallback)");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("mobileOverlay");
+      if (sidebar && overlay) {
+        sidebar.classList.add("active");
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    };
+  }
+
+  if (typeof hideSidebar !== "function") {
+    window.hideSidebar = function () {
+      console.log("Hiding sidebar (fallback)");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("mobileOverlay");
+      if (sidebar && overlay) {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    };
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Highlight active navigation item
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (currentPath.includes(href) && href !== "/") {
+        link.classList.add("bg-indigo-100", "text-indigo-600");
+        link.classList.remove("text-gray-700");
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Toggle Switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+  }
+
+  input:checked + .slider {
+    background-color: #4f46e5;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #4f46e5;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 24px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+</style>

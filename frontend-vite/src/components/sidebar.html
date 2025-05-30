@@ -1,0 +1,126 @@
+<!-- Sidebar Component -->
+<!-- Sidebar -->
+<aside
+  class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50"
+  id="sidebar"
+>
+  <!-- Tombol tutup menu (hanya muncul di mobile) -->
+  <div class="close-menu hidden">
+    <button
+      class="p-2 text-gray-500 hover:text-gray-700"
+      id="closeMenu"
+      onclick="hideSidebar()"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <!-- Logo -->
+  <div class="px-6 py-5 border-b border-gray-200">
+    <a href="/" class="flex items-center">
+      <img
+        src="/src/images/Logo.png"
+        alt="SmartSaku Logo"
+        class="h-8 w-auto mr-2"
+      />
+      <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+    </a>
+  </div>
+
+  <!-- User Profile -->
+  <div class="px-6 py-5 border-b border-gray-200">
+    <div class="flex items-center space-x-3">
+      <div class="p-1 rounded-full border-2 border-gray-200">
+        <img
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+          alt="Profile"
+          class="w-8 h-8 rounded-full"
+        />
+      </div>
+      <div>
+        <p class="font-medium text-gray-800">Andhika Fajar</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="px-4 py-4">
+    <ul class="space-y-4">
+      <li>
+        <a
+          href="/dashboard"
+          class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium nav-link"
+          data-page="dashboard"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-chart-line text-gray-600"></i>
+          </div>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/report"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium nav-link"
+          data-page="report"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-plug text-gray-600"></i>
+          </div>
+          <span>Report</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/notifikasi"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium nav-link"
+          data-page="notifikasi"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-bell text-gray-600"></i>
+          </div>
+          <span>Notifikasi</span>
+          <span
+            class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+            >3</span
+          >
+        </a>
+      </li>
+      <li>
+        <a
+          href="/simulasi"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium nav-link"
+          data-page="simulasi"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-gift text-gray-600"></i>
+          </div>
+          <span>Simulasi</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/profil"
+          class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium nav-link"
+          data-page="profil"
+        >
+          <div class="bg-white p-1.5 rounded shadow-sm">
+            <i class="fas fa-user text-gray-600"></i>
+          </div>
+          <span>Profil</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Logout Button -->
+  <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+    <a
+      href="/login"
+      class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+    >
+      <div class="bg-white p-1.5 rounded shadow-sm">
+        <i class="fas fa-sign-out-alt text-gray-600"></i>
+      </div>
+      <span>Keluar</span>
+    </a>
+  </div>
+</aside>

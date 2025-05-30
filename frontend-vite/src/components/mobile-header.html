@@ -1,0 +1,25 @@
+<!-- Mobile Header Component -->
+<!-- Mobile Header (hanya muncul di mobile) -->
+<div class="mobile-header hidden">
+  <button
+    type="button"
+    class="hamburger-menu"
+    id="hamburgerMenu"
+    onclick="showSidebar()"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="flex items-center">
+    <img
+      src="/src/images/Logo.png"
+      alt="SmartSaku Logo"
+      class="h-8 w-auto mr-2"
+    />
+    <span class="text-xl font-bold text-gray-800">SmartSaku</span>
+  </div>
+  <div class="w-10"></div>
+  <!-- Spacer untuk balance -->
+</div>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="hideSidebar()"></div>
