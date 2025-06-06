@@ -3,6 +3,8 @@
  * File ini menangani semua fitur dan fungsi UI dashboard SmartSaku
  */
 
+import { setupResponsiveCharts } from './dashboard-module.js';
+
 /**
  * Mengatur semua fungsionalitas dashboard
  */
@@ -38,9 +40,7 @@ function setupAllCharts() {
     setupCashFlowChart();
 
     // Setup Category Chart
-    setupCategoryChart();
-
-    // Setup charts untuk laporan
+    setupCategoryChart();    // Setup charts untuk laporan
     if (document.getElementById('trendChart')) {
         setupTrendChart();
     }
@@ -48,6 +48,9 @@ function setupAllCharts() {
     if (document.getElementById('distributionChart')) {
         setupDistributionChart();
     }
+
+    // Setup responsive charts
+    setupResponsiveCharts();
 
     // Setup charts untuk simulasi
     if (document.getElementById('weeklyTrendChart')) {

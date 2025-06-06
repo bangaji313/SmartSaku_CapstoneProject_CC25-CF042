@@ -11,6 +11,7 @@ import { setupMobileMenu, setupLoginForm, setupRegisterForm, setupSmoothScrollin
 import { setupDashboard } from './js/dashboard-module.js';
 import { setupDashboardComplete } from './js/dashboard-complete.js';
 import { initSidebar } from './js/sidebar.js';
+import { initMobileSidebar } from './js/mobile-sidebar.js';
 
 /**
  * Initialize page with charts
@@ -76,12 +77,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Mengambil template HTML menggunakan fetch API
         const response = await fetch(templatePath);
-        const html = await response.text();
+        const html = await response.text();        // Menampilkan konten HTML
+        document.getElementById('app').innerHTML = html;
 
-        // Menampilkan konten HTML
-        document.getElementById('app').innerHTML = html;        // Menjalankan setup functions setelah HTML dimuat
+        // Menjalankan setup functions setelah HTML dimuat
         setupMobileMenu();
-        setupSmoothScrolling();        // Setup form dan fungsionalitas berdasarkan halaman
+        setupSmoothScrolling();
+
+        // Initialize mobile sidebar for all pages with slight delay to ensure DOM is ready
+        setTimeout(() => {
+            initMobileSidebar();
+        }, 100);
+
+        // Setup form dan fungsionalitas berdasarkan halaman
         if (path === '/login' || path.includes('login.html')) {
             setupLoginForm();
         } else if (path === '/register' || path.includes('register.html')) {

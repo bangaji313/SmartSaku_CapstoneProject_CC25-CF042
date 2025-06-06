@@ -31,15 +31,19 @@ export function setupCashFlowChart() {
                 tension: 0.4
             }
         ]
-    };
-
-    // Opsi chart
+    };    // Opsi chart
     const options = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                position: 'top',
+                position: window.innerWidth < 768 ? 'bottom' : 'top',
+                labels: {
+                    boxWidth: window.innerWidth < 768 ? 12 : 40,
+                    font: {
+                        size: window.innerWidth < 768 ? 10 : 12
+                    }
+                }
             },
             tooltip: {
                 callbacks: {
@@ -122,9 +126,7 @@ export function setupCategoryChart() {
                 borderWidth: 1
             }
         ]
-    };
-
-    // Opsi chart
+    };    // Opsi chart
     const options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -132,8 +134,13 @@ export function setupCategoryChart() {
             legend: {
                 position: 'bottom',
                 labels: {
-                    boxWidth: 12
-                }
+                    boxWidth: window.innerWidth < 480 ? 8 : 12,
+                    font: {
+                        size: window.innerWidth < 480 ? 9 : 11
+                    },
+                    padding: window.innerWidth < 480 ? 8 : 15
+                },
+                display: window.innerWidth > 350 // Hide legend on very small screens
             },
             tooltip: {
                 callbacks: {
@@ -249,6 +256,61 @@ export function setupAIChat() {
     }
 }
 
+// Setup untuk menangani responsif chart
+export function setupResponsiveCharts() {
+    let cashFlowChart = null;
+    let categoryChart = null;
+
+    // Fungsi untuk mendapatkan instance chart
+    function getChartInstances() {
+        const cashFlowCanvas = document.getElementById('cashFlowChart');
+        const categoryCanvas = document.getElementById('categoryChart');
+
+        if (cashFlowCanvas) {
+            cashFlowChart = Chart.getChart(cashFlowCanvas);
+        }
+
+        if (categoryCanvas) {
+            categoryChart = Chart.getChart(categoryCanvas);
+        }
+    }
+
+    // Fungsi untuk memperbarui opsi chart berdasarkan ukuran layar
+    function updateChartOptions() {
+        const isMobile = window.innerWidth < 768;
+        const isSmallMobile = window.innerWidth < 480;
+
+        setTimeout(() => {
+            getChartInstances();
+
+            if (cashFlowChart) {
+                cashFlowChart.options.plugins.legend.position = isMobile ? 'bottom' : 'top';
+                cashFlowChart.options.plugins.legend.labels.boxWidth = isMobile ? 12 : 40;
+                cashFlowChart.options.plugins.legend.labels.font = {
+                    size: isMobile ? 10 : 12
+                };
+                cashFlowChart.update();
+            }
+
+            if (categoryChart) {
+                categoryChart.options.plugins.legend.labels.boxWidth = isSmallMobile ? 8 : 12;
+                categoryChart.options.plugins.legend.labels.font = {
+                    size: isSmallMobile ? 9 : 11
+                };
+                categoryChart.options.plugins.legend.labels.padding = isSmallMobile ? 8 : 15;
+                categoryChart.options.plugins.legend.display = window.innerWidth > 350;
+                categoryChart.update();
+            }
+        }, 500); // Delay to ensure charts are initialized
+    }
+
+    // Menambahkan event listener untuk resize
+    window.addEventListener('resize', updateChartOptions);
+
+    // Initial call to set correct options
+    updateChartOptions();
+}
+
 // Setup dashboard secara keseluruhan
 export function setupDashboard() {
     console.log('Setting up dashboard...');
@@ -260,9 +322,7 @@ export function setupDashboard() {
         link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
         document.head.appendChild(link);
         console.log('Font Awesome ditambahkan');
-    }
-
-    // Pastikan Chart.js tersedia
+    }    // Pastikan Chart.js tersedia
     if (typeof Chart === 'undefined') {
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
@@ -270,6 +330,7 @@ export function setupDashboard() {
             console.log('Chart.js loaded');
             setupCashFlowChart();
             setupCategoryChart();
+            setupResponsiveCharts(); // Inisialisasi responsif charts
         };
         document.head.appendChild(script);
         console.log('Chart.js ditambahkan');
