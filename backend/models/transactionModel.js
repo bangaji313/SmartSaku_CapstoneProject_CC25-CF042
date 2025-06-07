@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 const transactionSchema = new mongoose.Schema({
-  amount: {
+  nominal: {
     type: Number,
     required: true,
-    min: [0, "Amount must be positive"],
+    min: [0, "Nominal harus bernilai positif"],
   },
-  category: {
+  kategori: {
     type: String,
     required: true,
+    trim: true,
+  },
+  deskripsi: {
+    type: String,
     trim: true,
   },
   date: {
     type: Date,
     default: Date.now,
-  },
-  note: {
-    type: String,
-    trim: true,
   },
 });
 
