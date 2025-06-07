@@ -27,7 +27,7 @@ export const addTransactionHandler = async (request, h) => {
   if (!isValidType(type)) {
     return h.response({ message: "Invalid transaction type." }).code(400);
   }
-
+  console.log(transactionData);
   try {
     const user = await User.findById(userId);
     if (!user) return h.response({ message: "User not found" }).code(404);
