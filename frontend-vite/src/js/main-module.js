@@ -32,75 +32,168 @@ export function setupSmoothScrolling() {
     });
 }
 
-// Fungsi untuk setup login form
+/**
+ * Setup Login Form
+ * @returns {void}
+ */
 export function setupLoginForm() {
+    console.log('Setting up login form...');
     const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Show loading state
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Memproses...';
-            submitBtn.disabled = true;
-
-            // Simulate API call
-            setTimeout(() => {
-                console.log('Login attempt:', { email, password });
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                showSuccess('Login berhasil! Mengalihkan ke dashboard...');
-                setTimeout(() => {
-                    window.location.href = '/dashboard';
-                }, 1500);
-            }, 1500);
-        });
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    
+    // Periksa apakah elemen form dan input ditemukan
+    if (!loginForm) {
+        console.error("Form login tidak ditemukan!");
+        return;
     }
+    
+    if (!emailInput || !passwordInput) {
+        console.error("Input form login tidak lengkap:", {
+            emailFound: !!emailInput,
+            passwordFound: !!passwordInput
+        });
+        return;
+    }
+    
+    loginForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        console.log("Login form submitted");
+        
+        try {
+            // Tampilkan loading state pada button
+            const submitButton = loginForm.querySelector('button[type="submit"]');
+            const originalText = submitButton ? submitButton.innerText : 'Masuk';
+            if (submitButton) {
+                submitButton.innerText = 'Memproses...';
+                submitButton.disabled = true;
+            }
+              console.log("Mengirim request login ke server...");
+            const response = await fetch('/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    password: passwordInput.value
+                })
+            });
+            
+            console.log("Response status:", response.status);
+            const data = await response.json();
+            console.log("Response data:", data);
+            
+            if (!response.ok) {
+                throw new Error(data.message || 'Login gagal');
+            }
+            
+            // Simpan token dan data user di localStorage
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            
+            // Redirect ke dashboard
+            console.log("Login berhasil, redirect ke dashboard");
+            window.location.href = '/dashboard.html';
+            
+        } catch (error) {
+            console.error("Error saat login:", error);
+            // Tampilkan pesan error
+            alert(`Error: ${error.message}`);
+        } finally {
+            // Kembalikan button ke state semula
+            const submitButton = loginForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.innerText = 'Masuk';
+                submitButton.disabled = false;
+            }
+        }
+    });
 }
 
-// Fungsi untuk setup register form
+/**
+ * Setup Register Form
+ * @returns {void}
+ */
 export function setupRegisterForm() {
+    console.log('Setting up register form...');
     const registerForm = document.getElementById('registerForm');
-    if (registerForm) {
-        registerForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            // Validation
-            if (password !== confirmPassword) {
-                showError('Kata sandi tidak cocok!');
-                return;
-            }
-
-            if (password.length < 8) {
-                showError('Kata sandi minimal 8 karakter!');
-                return;
-            }
-
-            // Show loading state
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Mendaftar...';
-            submitBtn.disabled = true;
-
-            // Simulate API call
-            setTimeout(() => {
-                console.log('Registration attempt:', { name, email, password });
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                showSuccess('Pendaftaran berhasil! Silakan cek email Anda untuk verifikasi.');
-                setTimeout(() => {
-                    window.location.href = '/login';
-                }, 2000);
-            }, 1500);
-        });
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const termsCheckbox = document.getElementById('terms');
+    
+    // Periksa apakah elemen form dan input ditemukan
+    if (!registerForm) {
+        console.error("Form register tidak ditemukan!");
+        return;
     }
+    
+    if (!emailInput || !passwordInput || !termsCheckbox) {
+        console.error("Input form tidak lengkap:", {
+            emailFound: !!emailInput,
+            passwordFound: !!passwordInput,
+            termsFound: !!termsCheckbox
+        });
+        return;
+    }
+    
+    registerForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        console.log("Form submit event captured");
+        
+        if (!termsCheckbox.checked) {
+            alert('Anda harus menyetujui Syarat dan Ketentuan serta Kebijakan Privasi');
+            return;
+        }
+        
+        try {
+            // Tampilkan loading state pada button
+            const submitButton = registerForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerText;
+            submitButton.innerText = 'Memproses...';
+            submitButton.disabled = true;
+              console.log("Mengirim request register ke server...");
+            const response = await fetch('/api/user/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: emailInput.value.split('@')[0], // Menggunakan bagian depan email sebagai nama
+                    email: emailInput.value,
+                    password: passwordInput.value
+                })
+            });
+            
+            console.log("Response status:", response.status);
+            const data = await response.json();
+            console.log("Response data:", data);
+            
+            if (!response.ok) {
+                throw new Error(data.message || 'Registrasi gagal');
+            }
+            
+            // Tampilkan pesan sukses
+            alert('Registrasi berhasil! Silakan login dengan akun baru Anda.');
+            
+            console.log("Mencoba redirect ke login.html");
+            // Redirect ke halaman login
+            window.location.href = 'login.html';
+            
+        } catch (error) {
+            console.error("Error saat registrasi:", error);
+            // Tampilkan pesan error
+            alert(`Error: ${error.message}`);
+        } finally {
+            console.log("Eksekusi finally block");
+            // Kembalikan button ke state semula
+            const submitButton = registerForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+                submitButton.innerText = 'Daftar';
+                submitButton.disabled = false;
+            }
+        }
+    });
 }
 
 // Helper function untuk menampilkan pesan error
