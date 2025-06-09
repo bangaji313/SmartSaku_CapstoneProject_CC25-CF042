@@ -1,4 +1,4 @@
-import User from "../models/userModel.js";
+import DataTransaction from "../models/dataTransactionModel.js";
 
 // Helper to validate transaction type
 const isValidType = (type) => ["incomes", "expenses"].includes(type);
@@ -11,10 +11,10 @@ export const getTransactionsHandler = async (request, h) => {
   }
 
   try {
-    const user = await User.findById(userId);
-    if (!user) return h.response({ message: "User not found" }).code(404);
+    const data = await DataTransaction.findOne({ userId });
+    if (!data) return h.response({ message: "Data not found" }).code(404);
 
-    return h.response(user[type]).code(200);
+    return h.response(data[type]).code(200);
   } catch (err) {
     return h.response({ message: err.message }).code(500);
   }
@@ -27,13 +27,16 @@ export const addTransactionHandler = async (request, h) => {
   if (!isValidType(type)) {
     return h.response({ message: "Invalid transaction type." }).code(400);
   }
-  console.log(transactionData);
-  try {
-    const user = await User.findById(userId);
-    if (!user) return h.response({ message: "User not found" }).code(404);
 
-    user[type].push(transactionData);
-    await user.save();
+  try {
+    let data = await DataTransaction.findOne({ userId });
+
+    if (!data) {
+      data = new DataTransaction({ userId, incomes: [], expenses: [] });
+    }
+
+    data[type].push(transactionData);
+    await data.save();
 
     return h.response({ message: "Transaction added", transaction: transactionData }).code(201);
   } catch (err) {
@@ -50,14 +53,14 @@ export const updateTransactionHandler = async (request, h) => {
   }
 
   try {
-    const user = await User.findById(userId);
-    if (!user) return h.response({ message: "User not found" }).code(404);
+    const data = await DataTransaction.findOne({ userId });
+    if (!data) return h.response({ message: "Data not found" }).code(404);
 
-    const transaction = user[type].id(transactionId);
+    const transaction = data[type].id(transactionId);
     if (!transaction) return h.response({ message: "Transaction not found" }).code(404);
 
     Object.assign(transaction, updatedData);
-    await user.save();
+    await data.save();
 
     return h.response({ message: "Transaction updated", transaction }).code(200);
   } catch (err) {
@@ -73,11 +76,14 @@ export const deleteTransactionHandler = async (request, h) => {
   }
 
   try {
-    const user = await User.findById(userId);
-    if (!user) return h.response({ message: "User not found" }).code(404);
+    const data = await DataTransaction.findOne({ userId });
+    if (!data) return h.response({ message: "Data not found" }).code(404);
 
-    user[type] = user[type].filter((tx) => tx._id.toString() !== transactionId);
-    await user.save();
+    const transaction = data[type].id(transactionId);
+    if (!transaction) return h.response({ message: "Transaction not found" }).code(404);
+
+    transaction.remove();
+    await data.save();
 
     return h.response({ message: "Transaction deleted" }).code(200);
   } catch (err) {
