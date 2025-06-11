@@ -1,0 +1,140 @@
+text,intent
+"halo",sapaan
+"hai",sapaan
+"selamat pagi",sapaan
+"selamat siang",sapaan
+"selamat sore",sapaan
+"pagi min",sapaan
+"hai min",sapaan
+"woi",sapaan
+"assalamualaikum",sapaan
+"permisi",sapaan
+"apa kabar",sapaan
+"hi",sapaan
+"gimana cara nabung buat mahasiswa?",tanya_tabungan
+"cara mulai menabung gimana ya?",tanya_tabungan
+"bagaimana cara menabung dengan uang saku pas-pasan?",tanya_tabungan
+"kasih tau cara nyimpen duit dong",tanya_tabungan
+"saya mau mulai nabung tapi bingung",tanya_tabungan
+"gmn caranya biar bisa punya tabungan?",tanya_tabungan
+"langkah awal menabung apa ya?",tanya_tabungan
+"ada tips buat nabung ga?",tanya_tabungan
+"pengen nabung tapi uangnya dikit",tanya_tabungan
+"nabung yg efektif gmn?",tanya_tabungan
+"aku mau nabung buat beli laptop",tanya_tabungan
+"cara menabung 1 juta pertama",tanya_tabungan
+"susah banget nabung, ada saran?",tanya_tabungan
+"nabung harian atau bulanan ya bagusnya?",tanya_tabungan
+"gimana cara konsisten nabung?",tanya_tabungan
+"kasih tips hemat dong",tips_hemat
+"tips hemat buat anak kos",tips_hemat
+"biar ga boros gimana caranya?",tips_hemat
+"cara menekan pengeluaran gimana?",tips_hemat
+"gimana cara hidup hemat di akhir bulan?",tips_hemat
+"tips irit buat mahasiswa dong",tips_hemat
+"cara menghemat uang jajan",tips_hemat
+"tolong kasih saran biar hemat",tips_hemat
+"bagaimana cara mengelola uang agar tidak boros?",tips_hemat
+"tips and trick hemat",tips_hemat
+"makan hemat tapi tetap sehat gimana?",tips_hemat
+"cara hemat ongkos ke kampus",tips_hemat
+"lagi bokek nih, cara bertahan hidup gimana?",tips_hemat
+"belanja bulanan hemat gimana ya?",tips_hemat
+"nongkrong hemat sama teman gimana?",tips_hemat
+"pengeluaran terbesarku apa ya?",info_pengeluaran
+"cek pengeluaranku dong",info_pengeluaran
+"bulan ini aku paling banyak jajan apa?",info_pengeluaran
+"lihat ringkasan keuanganku",info_pengeluaran
+"mana pengeluaran yang paling besar?",info_pengeluaran
+"total pengeluaran aku berapa?",info_pengeluaran
+"rekap pengeluaranku dong",info_pengeluaran
+"uangku habis kemana aja ya?",info_pengeluaran
+"bantu analisis pengeluaranku",info_pengeluaran
+"laporan keuanganku gimana?",info_pengeluaran
+"apa saja fitur di aplikasi ini?",tanya_fitur
+"aplikasi ini bisa ngapain aja?",tanya_fitur
+"jelaskan fitur-fiturnya",tanya_fitur
+"apa gunanya aplikasi ini?",tanya_fitur
+"bisa bantu apa aja?",tanya_fitur
+"kenapa aku harus pakai app ini?",tanya_fitur
+"apa kelebihan smartsaku?",tanya_fitur
+"fitur andalannya apa?",tanya_fitur
+"uangku cepet banget abis",keluhan_boros
+"kok aku boros banget ya?",keluhan_boros
+"duitku hilang kemana aja ya?",keluhan_boros
+"aku gatau kenapa pengeluaranku banyak",keluhan_boros
+"merasa boros akhir-akhir ini",keluhan_boros
+"gimana cara berhenti boros?",keluhan_boros
+"aku ga bisa nahan diri buat jajan",keluhan_boros
+"kenapa ya aku selalu merasa kurang uang?",keluhan_boros
+"gaji sebulan habis seminggu",keluhan_boros
+"susah banget ngerem pengeluaran",keluhan_boros
+"aku harus mulai dari mana?",bingung_mulai
+"bingung mau mulai atur keuangan",bingung_mulai
+"saya bingung harus ngapain dulu",bingung_mulai
+"langkah pertama buat atur duit apa ya?",bingung_mulai
+"aku pemula banget nih, harus gimana?",bingung_mulai
+"help, keuangan berantakan",bingung_mulai
+"mau tobat finansial, mulai dari mana?",bingung_mulai
+"mau investasi tapi pemula, saran?",tanya_investasi_pemula
+"investasi apa yang cocok buat mahasiswa?",tanya_investasi_pemula
+"mulai investasi modal kecil gimana?",tanya_investasi_pemula
+"rekomendasi reksadana buat pemula",tanya_investasi_pemula
+"investasi aman buat mahasiswa apa ya?",tanya_investasi_pemula
+"apa itu reksadana pasar uang?",tanya_investasi_pemula
+"bedanya saham sama reksadana apa?",tanya_investasi_pemula
+"belajar investasi dari mana?",tanya_investasi_pemula
+"risiko investasi apa aja?",tanya_investasi_pemula
+"dana darurat itu penting ga?",dana_darurat
+"berapa sih dana darurat yang ideal buat mahasiswa?",dana_darurat
+"cara ngumpulin dana darurat gimana?",dana_darurat
+"apa bedanya dana darurat sama tabungan biasa?",dana_darurat
+"kapan dana darurat boleh dipakai?",dana_darurat
+"simpan dana darurat dimana ya enaknya?",dana_darurat
+"dana darurat buat anak kos berapa?",dana_darurat
+"kalau belum punya dana darurat gimana?",dana_darurat
+"pemasukanku ga tetap, gimana atur keuangannya?",atur_pemasukan_tidak_tetap
+"gimana cara nabung kalau pendapatan ga menentu?",atur_pemasukan_tidak_tetap
+"saya freelancer, gimana bikin budgetnya?",atur_pemasukan_tidak_tetap
+"tips kelola uang buat yang gajinya ga bulanan",atur_pemasukan_tidak_tetap
+"kalau dapet uang proyek, enaknya diapain?",atur_pemasukan_tidak_tetap
+"cara buat dana darurat kalau pemasukan ga pasti?",atur_pemasukan_tidak_tetap
+"gimana alokasi gaji yang ga tetap?",atur_pemasukan_tidak_tetap
+"mending bayar cicilan dulu atau nabung?",cicilan_hutang
+"aku punya utang, gimana cara lunasinnya?",cicilan_hutang
+"cara cepat bebas dari hutang",cicilan_hutang
+"utang dulu atau dana darurat dulu?",cicilan_hutang
+"gimana cara ngatur uang kalau ada cicilan?",cicilan_hutang
+"tips negosiasi utang",cicilan_hutang
+"bahaya pinjol apa aja?",cicilan_hutang
+"apa bedanya kebutuhan sama keinginan?",bedakan_kebutuhan_keinginan
+"gimana cara bedain butuh dan ingin?",bedakan_kebutuhan_keinginan
+"cara nahan keinginan jajan",bedakan_kebutuhan_keinginan
+"aku sering lapar mata, gimana ngatasinnya?",bedakan_kebutuhan_keinginan
+"tips biar ga impulsif buying",bedakan_kebutuhan_keinginan
+"cara membuat skala prioritas keuangan",bedakan_kebutuhan_keinginan
+"kebutuhan primer mahasiswa apa aja?",bedakan_kebutuhan_keinginan
+"ide cari uang tambahan buat mahasiswa apa ya?",penghasilan_tambahan
+"kerja part-time yang cocok buat mahasiswa apa?",penghasilan_tambahan
+"gimana cara dapet penghasilan tambahan?",penghasilan_tambahan
+"side hustle buat maba dong",penghasilan_tambahan
+"cara monetisasi skill yang aku punya",penghasilan_tambahan
+"kerja remote buat mahasiswa ada ga?",penghasilan_tambahan
+"cara dapat cuan dari internet",penghasilan_tambahan
+"lagi males nabung, kasih semangat dong",minta_motivasi
+"susah banget konsisten hemat, butuh motivasi",minta_motivasi
+"kenapa aku harus atur keuangan?",minta_motivasi
+"kasih kata-kata motivasi keuangan dong",minta_motivasi
+"biar semangat nabung gimana?",minta_motivasi
+"capek miskin terus, kasih pencerahan",minta_motivasi
+"makasih ya infonya",terima_kasih
+"oke thanks",terima_kasih
+"terima kasih banyak",terima_kasih
+"oke makasih",terima_kasih
+"mantap, thanks!",terima_kasih
+"siap, makasih bantuannya",terima_kasih
+"oke, sangat membantu",terima_kasih
+"thank you",terima_kasih
+"sangat bermanfaat",terima_kasih
+"infonya bagus banget",terima_kasih
+"keren, makasih",terima_kasih
