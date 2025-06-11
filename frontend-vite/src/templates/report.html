@@ -1,0 +1,536 @@
+<!-- Report Page Template -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50">
+    <!-- Logo -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <a href="/" class="flex items-center">
+        <img
+          src="/src/images/Logo.png"
+          alt="SmartSaku Logo"
+          class="h-8 w-auto mr-2"
+        />
+        <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+      </a>
+    </div>
+
+    <!-- User Profile -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <div class="flex items-center space-x-3">
+        <div class="p-1 rounded-full border-2 border-gray-200">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+            alt="Profile"
+            class="w-8 h-8 rounded-full"
+          />
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">Andhika Fajar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="px-4 py-4">
+      <ul class="space-y-4">
+        <li>
+          <a
+            href="/dashboard.html"
+            class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-line text-gray-600"></i>
+            </div>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/report.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md bg-indigo-100 text-indigo-600 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-plug text-indigo-600"></i>
+            </div>
+            <span>Report</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/notifikasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-bell text-gray-600"></i>
+            </div>
+            <span>Notifikasi</span>
+            <span
+              class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >3</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            href="/simulasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-gift text-gray-600"></i>
+            </div>
+            <span>Simulasi</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/profil.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-bar text-gray-600"></i>
+            </div>
+            <span>Profil</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Logout Button -->
+    <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+      <a
+        href="/login.html"
+        class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+      >
+        <div class="bg-white p-1.5 rounded shadow-sm">
+          <i class="fas fa-sign-out-alt text-gray-600"></i>
+        </div>
+        <span>Keluar</span>
+      </a>
+    </div>
+  </aside>
+  <!-- Main Content -->
+  <div class="ml-64 flex-1 p-8">    <!-- Report Header -->
+    <div class="mb-8 report-header">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Laporan Keuangan</h1>
+      <div class="flex items-center justify-between report-controls">
+        <p class="text-gray-600">
+          Lihat dan analisis keuangan Anda secara detail
+        </p>
+        <div class="flex items-center space-x-3 report-actions">
+          <select
+            class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary report-period-select"
+          >
+            <option>Bulan Ini</option>
+            <option>Bulan Lalu</option>
+            <option>3 Bulan Terakhir</option>
+            <option>6 Bulan Terakhir</option>
+            <option>Tahun Ini</option>
+          </select>
+          <button
+            class="bg-primary text-white rounded-lg px-4 py-2 text-sm hover:bg-primary/90 report-export-btn"
+          >
+            <i class="fas fa-download mr-2"></i> Ekspor PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 space-y-8">
+    <!-- Monthly Trend Chart -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 monthly-trend-card">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-900">
+              Tren Keuangan Bulanan
+            </h2>
+            <div class="flex space-x-2 trend-chart-controls">
+              <button
+                class="px-3 py-1 text-sm bg-indigo-100 text-indigo-600 rounded-lg"
+              >
+                Pemasukan
+              </button>
+              <button
+                class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-lg"
+              >
+                Pengeluaran
+              </button>
+              <button
+                class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-lg"
+              >
+                Tabungan
+              </button>
+            </div>
+          </div>          <div class="relative h-80 report-chart-container">
+            <canvas id="monthlyTrendChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Category Analysis -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Analisis Kategori</h2>
+            <div class="flex items-center space-x-2">
+              <span class="text-sm text-gray-500">Urutkan: </span>
+              <select
+                class="border border-gray-300 rounded-lg px-2 py-1 text-sm"
+              >
+                <option>Nilai Tertinggi</option>
+                <option>Nilai Terendah</option>
+                <option>A-Z</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-4">            <!-- Category Item -->
+            <div class="p-4 border border-gray-200 rounded-xl report-category-item">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-red-100 p-2 rounded-lg">
+                    <i class="fas fa-utensils text-red-500"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-900">Makanan & Minuman</h3>
+                </div>
+                <p class="font-bold text-gray-900">Rp 350.000</p>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                <div
+                  class="bg-red-500 h-2 rounded-full"
+                  style="width: 42%"
+                ></div>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600">
+                <span>42% dari total pengeluaran</span>
+                <span>+12% dari bulan lalu</span>
+              </div>
+            </div>            <div class="p-4 border border-gray-200 rounded-xl report-category-item">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-blue-100 p-2 rounded-lg">
+                    <i class="fas fa-car text-blue-500"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-900">Transportasi</h3>
+                </div>
+                <p class="font-bold text-gray-900">Rp 250.000</p>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  style="width: 30%"
+                ></div>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600">
+                <span>30% dari total pengeluaran</span>
+                <span>-5% dari bulan lalu</span>
+              </div>
+            </div>
+
+            <div class="p-4 border border-gray-200 rounded-xl report-category-item">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-3">
+                  <div class="bg-green-100 p-2 rounded-lg">
+                    <i class="fas fa-graduation-cap text-green-500"></i>
+                  </div>
+                  <h3 class="font-semibold text-gray-900">Pendidikan</h3>
+                </div>
+                <p class="font-bold text-gray-900">Rp 200.000</p>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                <div
+                  class="bg-green-500 h-2 rounded-full"
+                  style="width: 23%"
+                ></div>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600">
+                <span>23% dari total pengeluaran</span>
+                <span>Sama dengan bulan lalu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="space-y-8">        <!-- Summary Card -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 report-summary-card">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">
+            Ringkasan Keuangan
+          </h2>
+          <div class="space-y-4 summary-items">
+            <div
+              class="flex justify-between items-center pb-3 border-b border-gray-200 summary-item"
+            >
+              <span class="text-gray-600">Total Pemasukan:</span>
+              <span class="font-bold text-green-500">Rp 1.500.000</span>
+            </div>
+            <div
+              class="flex justify-between items-center pb-3 border-b border-gray-200 summary-item"
+            >
+              <span class="text-gray-600">Total Pengeluaran:</span>
+              <span class="font-bold text-red-500">Rp 850.000</span>
+            </div>
+            <div
+              class="flex justify-between items-center pb-3 border-b border-gray-200 summary-item"
+            >
+              <span class="text-gray-600">Saldo Bersih:</span>
+              <span class="font-bold text-blue-600">Rp 650.000</span>
+            </div>
+            <div class="flex justify-between items-center summary-item">
+              <span class="text-gray-600">Tabungan Tersimpan:</span>
+              <span class="font-bold text-indigo-600">Rp 400.000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Month Comparison -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">
+            Perbandingan Bulanan
+          </h2>          <div class="relative h-60 report-comparison-chart">
+            <canvas id="comparisonChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-bold text-gray-900">Transaksi Terakhir</h2>
+            <a href="#" class="text-primary text-sm hover:text-secondary"
+              >Lihat Semua</a
+            >
+          </div>          <div class="space-y-3 report-transaction-list">
+            <div
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transaction-item"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-red-100 p-2 rounded-lg transaction-icon">
+                  <i class="fas fa-coffee text-red-500"></i>
+                </div>
+                <div class="transaction-details">
+                  <p class="font-medium text-gray-900">Starbucks</p>
+                  <p class="text-xs text-gray-600">12 Jun, 10:25</p>
+                </div>
+              </div>
+              <p class="font-semibold text-red-500 transaction-amount">-Rp 45.000</p>
+            </div>
+
+            <div
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transaction-item"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-green-100 p-2 rounded-lg transaction-icon">
+                  <i class="fas fa-plus text-green-500"></i>
+                </div>
+                <div class="transaction-details">
+                  <p class="font-medium text-gray-900">Beasiswa</p>
+                  <p class="text-xs text-gray-600">10 Jun, 14:30</p>
+                </div>
+              </div>
+              <p class="font-semibold text-green-500 transaction-amount">+Rp 500.000</p>
+            </div>
+
+            <div
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transaction-item"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-blue-100 p-2 rounded-lg transaction-icon">
+                  <i class="fas fa-book text-blue-500"></i>
+                </div>
+                <div class="transaction-details">
+                  <p class="font-medium text-gray-900">Buku Semester</p>
+                  <p class="text-xs text-gray-600">8 Jun, 09:15</p>
+                </div>
+              </div>
+              <p class="font-semibold text-red-500 transaction-amount">-Rp 120.000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+      import { initSidebar } from "../js/sidebar.js";
+      import { initMobileSidebar } from "../js/mobile-sidebar.js";
+
+      // Initialize sidebar when DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Report page: DOM loaded, initializing sidebar...");
+        initSidebar();
+        initMobileSidebar(); // Initialize the mobile sidebar
+        
+        // Add overlay to the page for mobile sidebar
+        ensureOverlayExists();
+
+        // Initialize charts
+        initReportCharts();
+        
+        // Handle window resize to adjust charts for responsive view
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function() {
+            // Reinitialize charts when window size changes significantly
+            const chartInstances = Chart.instances || [];
+            if (chartInstances.length) {
+              chartInstances.forEach(chart => chart.destroy());
+              initReportCharts();
+            }
+          }, 250);
+        });
+      });
+      
+      // Ensure overlay exists for mobile sidebar
+      function ensureOverlayExists() {
+        if (!document.querySelector('.sidebar-overlay')) {
+          const overlay = document.createElement('div');
+          overlay.className = 'sidebar-overlay';
+          overlay.style.position = 'fixed';
+          overlay.style.top = '0';
+          overlay.style.left = '0';
+          overlay.style.right = '0';
+          overlay.style.bottom = '0';
+          overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+          overlay.style.zIndex = '49';
+          overlay.style.display = 'none';
+          document.body.appendChild(overlay);
+        }
+      }
+
+      function initReportCharts() {
+        // Check if we're on a mobile device
+        const isMobile = window.innerWidth < 768;
+        
+        // Monthly trend chart
+        const monthlyTrendCtx = document
+          .getElementById("monthlyTrendChart")
+          .getContext("2d");
+        new Chart(monthlyTrendCtx, {
+          type: "line",
+          data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun"],
+            datasets: [
+              {
+                label: "Pemasukan",
+                data: [950000, 1200000, 1100000, 1500000, 1400000, 1500000],
+                borderColor: "#6366F1",
+                backgroundColor: "rgba(99, 102, 241, 0.1)",
+                tension: 0.4,
+                fill: true,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                enabled: true,
+                mode: isMobile ? 'nearest' : 'index',
+                intersect: isMobile,
+                callbacks: {
+                  label: function(context) {
+                    let label = context.dataset.label || '';
+                    if (label) {
+                      label += ': ';
+                    }
+                    if (context.parsed.y !== null) {
+                      label += new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        minimumFractionDigits: 0
+                      }).format(context.parsed.y);
+                    }
+                    return label;
+                  }
+                }
+              }
+            },
+            interaction: {
+              mode: isMobile ? 'nearest' : 'index',
+              intersect: false,
+            },
+          },
+        });
+
+        // Comparison chart
+        const comparisonCtx = document
+          .getElementById("comparisonChart")
+          .getContext("2d");
+        new Chart(comparisonCtx, {
+          type: "bar",
+          data: {
+            labels: ["Mei", "Juni"],
+            datasets: [
+              {
+                label: "Pemasukan",
+                data: [1400000, 1500000],
+                backgroundColor: "rgba(34, 197, 94, 0.7)",
+                borderRadius: 6,
+              },
+              {
+                label: "Pengeluaran",
+                data: [800000, 850000],
+                backgroundColor: "rgba(239, 68, 68, 0.7)",
+                borderRadius: 6,
+              },
+              {
+                label: "Tabungan",
+                data: [350000, 400000],
+                backgroundColor: "rgba(99, 102, 241, 0.7)",
+                borderRadius: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  callback: function(value) {
+                    if (isMobile) {
+                      // Shorter format for mobile
+                      return value >= 1000000 ? (value/1000000).toFixed(1) + 'M' : value/1000 + 'K';
+                    }
+                    return value.toLocaleString('id-ID');
+                  }
+                }
+              },
+              x: {
+                ticks: {
+                  maxRotation: isMobile ? 0 : 50,
+                  minRotation: isMobile ? 0 : 0
+                }
+              }
+            },
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    let label = context.dataset.label || '';
+                    if (label) {
+                      label += ': ';
+                    }
+                    if (context.parsed.y !== null) {
+                      label += new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        minimumFractionDigits: 0
+                      }).format(context.parsed.y);
+                    }
+                    return label;
+                  }
+                }
+              }
+            }
+          },
+        });
+      }
+    </script>
+  </div>
+</div>

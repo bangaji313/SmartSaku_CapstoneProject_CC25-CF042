@@ -1,0 +1,194 @@
+<!-- Animated Background Elements -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+  <div
+    class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full opacity-10 blur-3xl animate-float"
+  ></div>
+  <div
+    class="absolute top-3/4 right-1/4 w-96 h-96 bg-accent rounded-full opacity-5 blur-3xl animate-float"
+    style="animation-delay: -3s"
+  ></div>
+  <div
+    class="absolute top-1/2 left-3/4 w-48 h-48 bg-secondary rounded-full opacity-15 blur-2xl animate-float"
+    style="animation-delay: -1.5s"
+  ></div>
+</div>
+
+<!-- Navigation -->
+<nav
+  class="bg-white/80 backdrop-blur-lg shadow-lg fixed w-full z-50 border-b border-primary/20"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a
+          href="/"
+          class="text-2xl font-bold text-primary hover:text-secondary transition-colors duration-300"
+        >
+          <span
+            class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+            >SmartSaku</span
+          >
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          href="/login"
+          class="text-gray-700 hover:text-primary transition duration-300 font-medium"
+          >Masuk</a
+        >
+        <a
+          href="/register"
+          class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300"
+        >
+          Daftar
+        </a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button text-gray-700 hover:text-primary">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div class="mobile-menu hidden md:hidden">
+    <div
+      class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 backdrop-blur-lg shadow-lg"
+    >
+      <a href="/login" class="block px-3 py-2 text-gray-700 hover:text-primary"
+        >Masuk</a
+      >
+      <a
+        href="/register"
+        class="block px-3 py-2 text-gray-700 hover:text-primary"
+        >Daftar</a
+      >
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<main class="pt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <div class="space-y-6">
+          <div class="inline-block">
+            <span
+              class="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full text-sm font-semibold animate-pulse-slow"
+            >
+              🚀 Teknologi AI Terdepan
+            </span>
+          </div>
+          <h1
+            class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight"
+          >
+            Kelola Keuangan Anda dengan
+            <span
+              class="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text"
+            >
+              Lebih Pintar
+            </span>
+          </h1>
+          <p class="text-xl text-gray-600 leading-relaxed">
+            SmartSaku membantu Anda mengelola keuangan dengan mudah dan cerdas
+            menggunakan teknologi AI terdepan. Dapatkan insight mendalam tentang
+            pola pengeluaran dan tips penghematan yang personal.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/register"
+            class="group bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl hover:shadow-primary/25 transform hover:-translate-y-1 transition-all duration-300 text-center"
+          >
+            <span class="flex items-center justify-center">
+              Mulai Sekarang
+              <svg
+                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                ></path>
+              </svg>
+            </span>
+          </a>
+          <a
+            href="#features"
+            class="group border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300 text-center"
+          >
+            <span class="flex items-center justify-center">
+              Pelajari Lebih Lanjut
+              <svg
+                class="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                ></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 pt-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary">10K+</div>
+            <div class="text-gray-600">Pengguna Aktif</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary">95%</div>
+            <div class="text-gray-600">Kepuasan User</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-primary">24/7</div>
+            <div class="text-gray-600">Dukungan AI</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent rounded-full opacity-20 blur-3xl animate-pulse-slow"
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full opacity-10 blur-2xl animate-float"
+        ></div>
+        <img
+          src="/src/images/Logo.png"
+          alt="SmartSaku Hero"
+          class="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl animate-float"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section
+    id="features"
+    class="py-20 bg-gradient-to-br from-white to-light relative overflow-hidden"
+  >
+    <!-- Features content will be loaded dynamically -->
+  </section>
+</main>

@@ -1,0 +1,704 @@
+<!-- Profil Page Template -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg h-screen fixed left-0 top-0 z-50">
+    <!-- Logo -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <a href="/" class="flex items-center">
+        <img
+          src="/src/images/Logo.png"
+          alt="SmartSaku Logo"
+          class="h-8 w-auto mr-2"
+        />
+        <span class="text-xl font-bold text-gray-800"> SmartSaku </span>
+      </a>
+    </div>
+
+    <!-- User Profile -->
+    <div class="px-6 py-5 border-b border-gray-200">
+      <div class="flex items-center space-x-3">
+        <div class="p-1 rounded-full border-2 border-gray-200">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+            alt="Profile"
+            class="w-8 h-8 rounded-full"
+          />
+        </div>
+        <div>
+          <p class="font-medium text-gray-800">Andhika Fajar</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="px-4 py-4">
+      <ul class="space-y-4">
+        <li>
+          <a
+            href="/dashboard.html"
+            class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-line text-gray-600"></i>
+            </div>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/report.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-plug text-gray-600"></i>
+            </div>
+            <span>Report</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/notifikasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-bell text-gray-600"></i>
+            </div>
+            <span>Notifikasi</span>
+            <span
+              class="ml-auto bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >3</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            href="/simulasi.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-gift text-gray-600"></i>
+            </div>
+            <span>Simulasi</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/profil.html"
+            class="w-full flex items-center space-x-3 p-3 rounded-md bg-indigo-100 text-indigo-600 font-medium"
+          >
+            <div class="bg-white p-1.5 rounded shadow-sm">
+              <i class="fas fa-chart-bar text-indigo-600"></i>
+            </div>
+            <span>Profil</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Logout Button -->
+    <div class="absolute bottom-0 p-4 w-full border-t border-gray-200">
+      <a
+        href="/login.html"
+        class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-100 text-gray-700 font-medium"
+      >
+        <div class="bg-white p-1.5 rounded shadow-sm">
+          <i class="fas fa-sign-out-alt text-gray-600"></i>
+        </div>
+        <span>Keluar</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="ml-64 flex-1 p-8">
+    <!-- Profile Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Profil Saya</h1>
+      <div class="flex items-center justify-between">
+        <p class="text-gray-600">Pengaturan profil dan preferensi Anda</p>
+        <button
+          class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 text-sm"
+        >
+          <i class="fas fa-save mr-2"></i> Simpan Perubahan
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="space-y-8">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <div class="flex flex-col items-center">
+            <div class="relative mb-4">
+              <div
+                class="w-32 h-32 rounded-full overflow-hidden border-4 border-primary/20"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=128&h=128&fit=crop&crop=face"
+                  alt="Profile Photo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <button
+                class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-2 shadow-lg hover:bg-secondary"
+              >
+                <i class="fas fa-camera text-sm"></i>
+              </button>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">Andhika Fajar</h2>
+            <p class="text-sm text-gray-600 mb-4">Mahasiswa</p>
+
+            <div class="flex space-x-3">
+              <button
+                class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-sm hover:bg-primary/20"
+              >
+                <i class="fas fa-pen mr-2"></i> Edit Profil
+              </button>
+              <button
+                class="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm hover:bg-gray-200"
+              >
+                <i class="fas fa-eye mr-2"></i> Lihat Publik
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-gray-200">
+            <div class="flex justify-between mb-3">
+              <span class="text-gray-600">Level Keuangan:</span>
+              <span class="font-semibold text-primary">Budget Warrior</span>
+            </div>
+            <div class="flex justify-between mb-3">
+              <span class="text-gray-600">Poin Reward:</span>
+              <span class="font-semibold">1,250 poin</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-600">Bergabung Sejak:</span>
+              <span class="font-semibold">Januari 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge Collection -->
+        <div
+          class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-200"
+        >
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Koleksi Badge</h2>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-yellow-100 p-3 rounded-full mb-2">
+                <i class="fas fa-trophy text-yellow-600 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center">Hemat Expert</p>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-blue-100 p-3 rounded-full mb-2">
+                <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center">Data Analyst</p>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-green-100 p-3 rounded-full mb-2">
+                <i class="fas fa-piggy-bank text-green-600 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center">Target Achiever</p>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-purple-100 p-3 rounded-full mb-2">
+                <i class="fas fa-calendar-check text-purple-600 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center">Consistent</p>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-gray-100 p-3 rounded-full mb-2">
+                <i class="fas fa-lock text-gray-400 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center text-gray-400">
+                Locked
+              </p>
+            </div>
+            <div class="bg-white/70 rounded-lg p-3 flex flex-col items-center">
+              <div class="bg-gray-100 p-3 rounded-full mb-2">
+                <i class="fas fa-lock text-gray-400 text-xl"></i>
+              </div>
+              <p class="text-xs font-medium text-center text-gray-400">
+                Locked
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle Column -->
+      <div class="space-y-8">
+        <!-- Personal Information Form -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">
+            Informasi Pribadi
+          </h2>
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="first-name"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Nama Depan</label
+                >
+                <input
+                  type="text"
+                  id="first-name"
+                  class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                  value="Andhika"
+                />
+              </div>
+              <div>
+                <label
+                  for="last-name"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Nama Belakang</label
+                >
+                <input
+                  type="text"
+                  id="last-name"
+                  class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                  value="Fajar"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                value="andhika.fajar@gmail.com"
+              />
+            </div>
+
+            <div>
+              <label
+                for="phone"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Nomor Telepon</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                value="08123456789"
+              />
+            </div>
+
+            <div>
+              <label
+                for="university"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Universitas</label
+              >
+              <input
+                type="text"
+                id="university"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                value="Universitas Indonesia"
+              />
+            </div>
+
+            <div>
+              <label
+                for="major"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Jurusan</label
+              >
+              <input
+                type="text"
+                id="major"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+                value="Teknik Informatika"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Preferences -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">
+            Preferensi Keuangan
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <label
+                for="monthly-income"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Pendapatan Bulanan</label
+              >
+              <div class="relative rounded-md">
+                <div
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                >
+                  <span class="text-gray-500 sm:text-sm">Rp</span>
+                </div>
+                <input
+                  type="text"
+                  id="monthly-income"
+                  class="block w-full pl-12 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+                  value="1500000"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="budget-category"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Kategori Budget Utama</label
+              >
+              <select
+                id="budget-category"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-primary focus:border-primary"
+              >
+                <option selected>Makanan</option>
+                <option>Transport</option>
+                <option>Pendidikan</option>
+                <option>Hiburan</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="saving-goal"
+                class="block text-sm font-medium text-gray-700 mb-1"
+                >Target Menabung Bulanan</label
+              >
+              <div class="relative rounded-md">
+                <div
+                  class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                >
+                  <span class="text-gray-500 sm:text-sm">Rp</span>
+                </div>
+                <input
+                  type="text"
+                  id="saving-goal"
+                  class="block w-full pl-12 pr-12 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"
+                  value="400000"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Metode Tabungan Prefered</label
+              >
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <input
+                    id="method-1"
+                    name="saving-method"
+                    type="radio"
+                    checked
+                    class="h-4 w-4 text-primary focus:ring-primary"
+                  />
+                  <label for="method-1" class="ml-2 text-sm text-gray-700"
+                    >Simpan di awal bulan (Pay Yourself First)</label
+                  >
+                </div>
+                <div class="flex items-center">
+                  <input
+                    id="method-2"
+                    name="saving-method"
+                    type="radio"
+                    class="h-4 w-4 text-primary focus:ring-primary"
+                  />
+                  <label for="method-2" class="ml-2 text-sm text-gray-700"
+                    >Simpan di akhir bulan (Sisa budget)</label
+                  >
+                </div>
+                <div class="flex items-center">
+                  <input
+                    id="method-3"
+                    name="saving-method"
+                    type="radio"
+                    class="h-4 w-4 text-primary focus:ring-primary"
+                  />
+                  <label for="method-3" class="ml-2 text-sm text-gray-700"
+                    >Tabung per transaksi (Round-up)</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <!-- Financial Health Score -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">
+            Skor Kesehatan Keuangan
+          </h2>
+          <div class="flex justify-center mb-6">
+            <div class="relative">
+              <canvas id="financeScoreChart" width="180" height="180"></canvas>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center text-center"
+              >
+                <p class="text-4xl font-bold text-primary">75</p>
+                <p class="text-sm text-gray-600">dari 100</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm text-gray-600">Disiplin Budget</span>
+                <span class="text-sm font-medium text-primary">85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-primary h-2 rounded-full"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm text-gray-600">Rasio Tabungan</span>
+                <span class="text-sm font-medium text-primary">70%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-primary h-2 rounded-full"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm text-gray-600">Konsistensi</span>
+                <span class="text-sm font-medium text-primary">65%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-primary h-2 rounded-full"
+                  style="width: 65%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-sm text-gray-600">Dana Darurat</span>
+                <span class="text-sm font-medium text-primary">80%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-primary h-2 rounded-full"
+                  style="width: 80%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Settings -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">
+            Pengaturan Aplikasi
+          </h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-gray-900">Tema Gelap</p>
+                <p class="text-sm text-gray-600">Ubah tampilan ke mode gelap</p>
+              </div>
+              <label class="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  class="form-checkbox h-5 w-5 text-primary"
+                />
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-gray-900">Notifikasi Push</p>
+                <p class="text-sm text-gray-600">Terima notifikasi penting</p>
+              </div>
+              <label class="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  class="form-checkbox h-5 w-5 text-primary"
+                  checked
+                />
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-gray-900">Email Weekly Digest</p>
+                <p class="text-sm text-gray-600">
+                  Ringkasan mingguan via email
+                </p>
+              </div>
+              <label class="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  class="form-checkbox h-5 w-5 text-primary"
+                  checked
+                />
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-gray-900">Mode Privasi</p>
+                <p class="text-sm text-gray-600">Sembunyikan jumlah nominal</p>
+              </div>
+              <label class="inline-flex items-center">
+                <input
+                  type="checkbox"
+                  class="form-checkbox h-5 w-5 text-primary"
+                />
+              </label>
+            </div>
+
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Bahasa</p>
+                  <p class="text-sm text-gray-600">Pilih bahasa tampilan</p>
+                </div>
+                <select
+                  class="border border-gray-300 rounded-lg px-3 py-1 focus:ring-primary focus:border-primary text-sm"
+                >
+                  <option selected>Indonesia</option>
+                  <option>English</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Format Mata Uang</p>
+                  <p class="text-sm text-gray-600">Format tampilan mata uang</p>
+                </div>
+                <select
+                  class="border border-gray-300 rounded-lg px-3 py-1 focus:ring-primary focus:border-primary text-sm"
+                >
+                  <option selected>IDR (Rp)</option>
+                  <option>USD ($)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Akun</h2>
+          <div class="space-y-3">
+            <a
+              href="#"
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-gray-100 p-2 rounded-lg">
+                  <i class="fas fa-shield-alt text-gray-600"></i>
+                </div>
+                <span class="text-gray-700">Keamanan & Privacy</span>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-gray-100 p-2 rounded-lg">
+                  <i class="fas fa-key text-gray-600"></i>
+                </div>
+                <span class="text-gray-700">Ubah Password</span>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-gray-100 p-2 rounded-lg">
+                  <i class="fas fa-cloud-download-alt text-gray-600"></i>
+                </div>
+                <span class="text-gray-700">Download Data Saya</span>
+              </div>
+              <i class="fas fa-chevron-right text-gray-400"></i>
+            </a>
+            <a
+              href="#"
+              class="flex items-center justify-between p-3 hover:bg-red-50 rounded-lg"
+            >
+              <div class="flex items-center space-x-3">
+                <div class="bg-red-100 p-2 rounded-lg">
+                  <i class="fas fa-trash-alt text-red-600"></i>
+                </div>
+                <span class="text-red-600">Hapus Akun</span>
+              </div>
+              <i class="fas fa-chevron-right text-red-400"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+      import { initSidebar } from "../js/sidebar.js";
+
+      // Initialize sidebar when DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Profile page: DOM loaded, initializing sidebar...");
+        initSidebar();
+
+        // Initialize finance score chart
+        initFinanceScoreChart();
+      });
+
+      function initFinanceScoreChart() {
+        const ctx = document
+          .getElementById("financeScoreChart")
+          .getContext("2d");
+        new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            datasets: [
+              {
+                data: [75, 25],
+                backgroundColor: ["#6366F1", "#E5E7EB"],
+                borderWidth: 0,
+                cutout: "80%",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                enabled: false,
+              },
+            },
+          },
+        });
+      }
+    </script>
+  </div>
+</div>
