@@ -1,22 +1,30 @@
 import pickle
 import random
 import sys
+import os
 
 def load_resources():
     """
     Fungsi untuk memuat model dan vectorizer dari file .pkl.
-    Mengembalikan model dan vectorizer.
+    Menggunakan path absolut agar tidak error saat dipanggil dari direktori lain.
     """
     try:
-        with open('model_chatbot.pkl', 'rb') as model_file:
+        # Dapatkan path direktori di mana script ini berada
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # Gabungkan path direktori dengan nama file model
+        model_path = os.path.join(base_dir, 'model_chatbot.pkl')
+        vectorizer_path = os.path.join(base_dir, 'vectorizer.pkl')
+
+        with open(model_path, 'rb') as model_file:
             model = pickle.load(model_file)
-        with open('vectorizer.pkl', 'rb') as vectorizer_file:
+        with open(vectorizer_path, 'rb') as vectorizer_file:
             vectorizer = pickle.load(vectorizer_file)
+        
+        print("Chatbot: Model dan vectorizer berhasil dimuat.")
         return model, vectorizer
     except FileNotFoundError:
-        # Jika file tidak ditemukan, cetak error dan keluar.
-        # Ini penting agar backend tahu ada masalah konfigurasi.
-        print("Error: File model atau vectorizer tidak ditemukan.")
+        print("Error: File model_chatbot.pkl atau vectorizer.pkl tidak ditemukan.", file=sys.stderr)
         sys.exit(1)
 
 def get_response(user_text, model, vectorizer):
