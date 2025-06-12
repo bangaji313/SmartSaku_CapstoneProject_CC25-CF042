@@ -101,10 +101,6 @@ if __name__ == '__main__':
     # Simulasi 'paket data' lengkap yang diterima dari request API
     contoh_paket_data = {
         'data_untuk_model': {
-            'Monthly_Income': 3000000,
-            'Financial_Aid': 500000,
-            'total_essentials': 150000, # Diisi dari hasil kalkulasi di backend
-            'total_non_essentials': 250000, # Diisi dari hasil kalkulasi di backend
             'Gender': 'Female',
             'Major': 'Computer Science'
         },
