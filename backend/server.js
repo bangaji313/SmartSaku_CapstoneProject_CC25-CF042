@@ -1,18 +1,38 @@
 import Hapi from "@hapi/hapi";
+import Inert from "@hapi/inert";
 import userRotues from "./routes/userRoute.js";
 import connectDB from "./utils/db.js";
 import transactionRoutes from "./routes/transactionRoute.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const server = Hapi.server({
   port: 3000,
   host: "localhost",
 });
-server.route({
-  method: "GET",
-  path: "/",
-  handler: (req, h) => {
-    return h.response("<h1>Hello World</h1>").type("text/html");
+await server.register(Inert);
+server.route([
+  {
+    method: "GET",
+    path: "/",
+    handler: (req, h) => {
+      return h.file(path.join(__dirname, "public/index.html"));
+    },
   },
-});
+  {
+    method: "GET",
+    path: "/public/{param*}",
+    handler: {
+      directory: {
+        path: path.join(__dirname, "public"),
+        index: false,
+      },
+    },
+  },
+]);
 
 server.route([...userRotues, ...transactionRoutes]);
 await connectDB();

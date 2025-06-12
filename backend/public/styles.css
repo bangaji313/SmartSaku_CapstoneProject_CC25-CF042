@@ -1,0 +1,156 @@
+/* Reset dan font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f9fafb;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #1e293b; /* dark blue-gray */
+  color: #e0e7ff; /* light blue */
+  padding: 2rem 1.5rem;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 2px solid #334155;
+}
+
+.sidebar h2 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin-bottom: 1rem;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+  color: #60a5fa; /* blue-400 */
+  outline: none;
+}
+
+/* Main content */
+.main-content {
+  margin-left: 260px;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.main-content h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.main-content h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.main-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.main-content code {
+  background: #e2e8f0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace, monospace;
+  font-size: 0.95rem;
+}
+
+pre {
+  background: #f1f5f9;
+  border-left: 4px solid #60a5fa;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-family: 'Source Code Pro', monospace, monospace;
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #475569;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #60a5fa;
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #334155;
+    padding: 1rem 1rem;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1.5rem 1rem;
+  }
+
+  .main-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.3rem;
+  }
+}

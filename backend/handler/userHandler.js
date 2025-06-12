@@ -1,5 +1,4 @@
 import User from "../models/userModel.js";
-import { generateToken } from "../utils/token.js";
 import { addUser, findUserByUsername, validatePassword } from "../utils/users.js";
 import bcrypt from "bcrypt";
 
@@ -20,11 +19,9 @@ export const loginHandler = async (request, h) => {
     }
 
     // Kalau berhasil login, kembalikan data user (tanpa password)
-    const token = generateToken(user);
     return h
       .response({
         message: "Login berhasil",
-        token,
         user: {
           id: user._id,
           name: user.name,
