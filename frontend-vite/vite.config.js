@@ -9,6 +9,7 @@ export default defineConfig({
     // Konfigurasi build
     build: {
         outDir: 'dist',
+        assetsDir: 'assets',
         minify: 'terser',
         sourcemap: true,
     },
@@ -26,7 +27,7 @@ export default defineConfig({
 
     // Konfigurasi server development
     server: {
-        port: 3000,
+        port: 3001,
         open: true, // Buka browser otomatis
         proxy: {
             '/api': {
@@ -42,4 +43,10 @@ export default defineConfig({
 
     // Plugin untuk Vite
     plugins: [],
+
+    css: {
+        postcss: {
+            plugins: []
+        }
+    }
 });
