@@ -2,15 +2,23 @@ import tensorflow as tf
 import numpy as np
 import pickle
 import sys
+import os
 
 # --- Muat semua file yang dibutuhkan ---
 try:
-    model = tf.keras.models.load_model('model_prediksi.keras')
-    with open('scaler_prediksi.pkl', 'rb') as f:
+    # Dapatkan path direktori di mana script ini berada
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Gabungkan path direktori dengan nama file-file artifak
+    model_path = os.path.join(base_dir, 'model_prediksi.keras')
+    scaler_path = os.path.join(base_dir, 'scaler_prediksi.pkl')
+
+    model = tf.keras.models.load_model(model_path)
+    with open(scaler_path, 'rb') as f:
         scaler = pickle.load(f)
-    print("Model prediksi dan scaler berhasil dimuat.")
+    print("Prediksi: Model dan scaler berhasil dimuat.")
 except Exception as e:
-    print(f"Error saat memuat model atau artifak: {e}", file=sys.stderr)
+    print(f"Error saat memuat model atau artifak prediksi: {e}", file=sys.stderr)
     model, scaler = None, None
 
 def predict_next_day_spending(last_7_days_spending):

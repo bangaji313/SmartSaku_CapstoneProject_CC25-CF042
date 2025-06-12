@@ -4,17 +4,26 @@ import numpy as np
 import pickle
 import random
 import sys
+import os
 
 # --- Muat semua artifak yang dibutuhkan (tidak ada perubahan di sini) ---
 try:
-    model = tf.keras.models.load_model('model_rekomendasi.keras')
-    with open('preprocessor_rekomendasi.pkl', 'rb') as f:
+    # Dapatkan path direktori di mana script ini berada
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Gabungkan path direktori dengan nama file-file artifak
+    model_path = os.path.join(base_dir, 'model_rekomendasi.keras')
+    preprocessor_path = os.path.join(base_dir, 'preprocessor_rekomendasi.pkl')
+    label_encoder_path = os.path.join(base_dir, 'label_encoder_rekomendasi.pkl')
+
+    model = tf.keras.models.load_model(model_path)
+    with open(preprocessor_path, 'rb') as f:
         preprocessor = pickle.load(f)
-    with open('label_encoder_rekomendasi.pkl', 'rb') as f:
+    with open(label_encoder_path, 'rb') as f:
         label_encoder = pickle.load(f)
-    print("Model dan artifak berhasil dimuat.")
+    print("Rekomendasi: Model dan artifak berhasil dimuat.")
 except Exception as e:
-    print(f"Error saat memuat model atau artifak: {e}", file=sys.stderr)
+    print(f"Error saat memuat model atau artifak rekomendasi: {e}", file=sys.stderr)
     model, preprocessor, label_encoder = None, None, None
 
 def get_recommendation(data_paket):
@@ -65,7 +74,7 @@ def get_recommendation(data_paket):
                 return "Budget hiburanmu hari ini sepertinya agak besar. Coba cari alternatif hiburan gratis besok, seperti olahraga atau baca buku di taman!"
             
             if category_spending.get('makanan', 0) > 100000 and item_counters.get('kopi', 0) == 0:
-                 return "Pengeluaran makanan hari ini cukup tinggi. Mungkin bisa coba kurangi makan di luar dan mulai masak sendiri? Pasti lebih hemat!"
+                return "Pengeluaran makanan hari ini cukup tinggi. Mungkin bisa coba kurangi makan di luar dan mulai masak sendiri? Pasti lebih hemat!"
 
             # --- ATURAN 3: Fallback (Jika tidak ada aturan spesifik yang cocok) ---
             saran_boros_umum = [
