@@ -10,7 +10,7 @@ try:
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Gabungkan path direktori dengan nama file-file artifak
-    model_path = os.path.join(base_dir, 'model_prediksi.keras')
+    model_path = os.path.join(base_dir, 'model_prediksi.h5')
     scaler_path = os.path.join(base_dir, 'scaler_prediksi.pkl')
 
     model = tf.keras.models.load_model(model_path)

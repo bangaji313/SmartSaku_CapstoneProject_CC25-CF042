@@ -12,7 +12,7 @@ try:
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Gabungkan path direktori dengan nama file-file artifak
-    model_path = os.path.join(base_dir, 'model_rekomendasi.keras')
+    model_path = os.path.join(base_dir, 'model_rekomendasi.h5')
     preprocessor_path = os.path.join(base_dir, 'preprocessor_rekomendasi.pkl')
     label_encoder_path = os.path.join(base_dir, 'label_encoder_rekomendasi.pkl')
 
