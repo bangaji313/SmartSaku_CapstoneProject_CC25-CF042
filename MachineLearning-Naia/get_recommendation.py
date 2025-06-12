@@ -5,6 +5,7 @@ import pickle
 import random
 import sys
 import os
+import h5py
 
 # --- Muat semua artifak yang dibutuhkan (tidak ada perubahan di sini) ---
 try:

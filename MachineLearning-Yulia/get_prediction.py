@@ -3,6 +3,7 @@ import numpy as np
 import pickle
 import sys
 import os
+import h5py
 
 # --- Muat semua file yang dibutuhkan ---
 try:
