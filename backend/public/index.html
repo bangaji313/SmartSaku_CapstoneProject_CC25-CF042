@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dokumentasi API</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>📘 API Docs</h2>
+    <ul>
+      <li><a href="#login">🔐 Login</a></li>
+      <li><a href="#register">📝 Register</a></li>
+      <li><a href="#get-transactions">📥 Get Transactions</a></li>
+      <li><a href="#add-transaction">➕ Add Transaction</a></li>
+      <li><a href="#delete-transaction">🗑️ Delete Transaction</a></li>
+      <li><a href="#update-transaction">🔄 Update Transaction</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>📄 Dokumentasi API User</h1>
+    <p><strong>Base URL:</strong> <code>http://localhost:3000/api/user</code></p>
+
+    <div class="section" id="login">
+      <h2>1. 🔐 Login User</h2>
+      <p><strong>Endpoint:</strong> <code>POST /login</code></p>
+      <p><strong>Deskripsi:</strong> Autentikasi user berdasarkan email dan password.</p>
+      
+      <p><strong>Request Headers:</strong></p>
+      <pre>{
+  "Content-Type": "application/json"
+}</pre>
+
+      <p><strong>Request Body:</strong></p>
+      <pre>{
+  "email": "admin@test.com",
+  "password": "admin123"
+}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+  "message": "Login berhasil",
+  "user": {
+    "id": "6840e85d41891a4e96746345",
+    "name": "john doe",
+    "email": "admin@test.com"
+  }
+}</pre>
+
+      <ul>
+        <li><code>user</code>: Data pengguna yang berhasil login</li>
+      </ul>
+    </div>
+
+    <div class="section" id="register">
+      <h2>2. 📝 Register User</h2>
+      <p><strong>Endpoint:</strong> <code>POST /register</code></p>
+      <p><strong>Deskripsi:</strong> Mendaftarkan user baru ke sistem.</p>
+
+      <p><strong>Request Headers:</strong></p>
+      <pre>{
+  "Content-Type": "application/json"
+}</pre>
+
+      <p><strong>Request Body:</strong></p>
+      <pre>{
+  "name": "john doe",
+  "email": "admin@test.com",
+  "password": "admin123"
+}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+  "message": "Registrasi berhasil",
+  "user": {
+    "id": "6843649d4669109495ce23f6",
+    "name": "john doe",
+    "email": "admin@test.com"
+  }
+}</pre>
+    </div>
+
+    <h1>📄 Dokumentasi API Transaction</h1>
+
+    <div class="section" id="get-transactions">
+      <h2>1. 📥 Get Transactions</h2>
+      <p><strong>Endpoint:</strong> <code>GET /api/users/{userId}/incomes</code> atau <code>GET /api/users/{userId}/expenses</code></p>
+      <p><strong>Deskripsi:</strong> Mengambil daftar transaksi berdasarkan jenis.</p>
+
+      <p><strong>Request Headers:</strong></p>
+      <pre>{}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>[
+  {
+    "nominal": 100000,
+    "kategori": "Transportasi",
+    "deskripsi": "Ojek coba",
+    "_id": "68444fc18bdfc9598b95aeb2",
+    "date": "2025-06-07T14:42:09.468Z"
+  }
+]</pre>
+    </div>
+
+    <div class="section" id="add-transaction">
+      <h2>2. ➕ Add Transaction</h2>
+      <p><strong>Endpoint:</strong> <code>POST /api/users/{userId}/incomes</code> atau <code>POST /api/users/{userId}/expenses</code></p>
+      <p><strong>Deskripsi:</strong> Menambahkan transaksi untuk user.</p>
+
+      <p><strong>Request Headers:</strong></p>
+      <pre>{
+  "Content-Type": "application/json"
+}</pre>
+
+      <p><strong>Request Body:</strong></p>
+      <pre>{
+  "nominal": 100000,
+  "kategori": "Transportasi",
+  "deskripsi": "Ojek coba"
+}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+  "message": "Transaction added",
+  "transaction": {
+    "nominal": 100000,
+    "kategori": "Transportasi",
+    "deskripsi": "Ojek coba"
+  }
+}</pre>
+    </div>
+
+    <div class="section" id="delete-transaction">
+      <h2>3. 🗑️ Delete Transaction</h2>
+      <p><strong>Endpoint:</strong> <code>DELETE /api/users/{userId}/incomes/{transactionId}</code> atau <code>DELETE /api/users/{userId}/expenses/{transactionId}</code></p>
+      <p><strong>Deskripsi:</strong> Menghapus transaksi berdasarkan ID.</p>
+
+      <p><strong>Request Headers:</strong></p>
+      <pre>{}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+  "message": "Transaction deleted"
+}</pre>
+    </div>
+
+    <div class="section" id="update-transaction">
+      <h2>4. 🔄 Update Transaction</h2>
+      <p><strong>Endpoint:</strong> <code>PUT /api/users/{userId}/incomes/{transactionId}</code> atau <code>PUT /api/users/{userId}/expenses/{transactionId}</code></p>
+      <p><strong>Deskripsi:</strong> Memperbarui data transaksi berdasarkan ID.</p>
+
+      <p><strong>Request Headers:</strong></p>
+      <pre>{
+  "Content-Type": "application/json"
+}</pre>
+
+      <p><strong>Request Body:</strong></p>
+      <pre>{
+  "nominal": 12000
+}</pre>
+
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+  "message": "Transaction updated",
+  "transaction": {
+    "nominal": 12000,
+    "kategori": "Transportasi",
+    "deskripsi": "Ojek coba",
+    "_id": "68444fc18bdfc9598b95aeb2",
+    "date": "2025-06-07T14:42:09.468Z"
+  }
+}</pre>
+    </div>
+  </div>
+</body>
+</html>
