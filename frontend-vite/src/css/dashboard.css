@@ -134,8 +134,8 @@
 
 /* Stats Cards */
 .stats-card {
-  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%);
+  border: 1px solid #2563eb;
   border-radius: 1rem;
   padding: 1.5rem;
   transition: all 0.3s ease;
@@ -680,7 +680,7 @@ body {
 .stats-card {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.9) 0%,
+    rgba(54, 2, 240, 0.9) 0%,
     rgba(255, 255, 255, 0.8) 100%
   );
   backdrop-filter: blur(10px);

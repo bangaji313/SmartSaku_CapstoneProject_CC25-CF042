@@ -5,10 +5,21 @@ import './css/tailwind.css';
 import './css/custom.css';
 import './css/dashboard.css';
 
+// Import Chat CSS - penting untuk chat assistant
+import './css/chat.css';
+
 // Import services yang sudah kita buat
 import AuthService from './services/AuthService.js';
 import TransaksiService from './services/TransaksiService.js';
 import { NotifikasiUtil, ValidasiUtil, LoadingUtil } from './utils/helpers.js';
+import ChatAssistant from './js/chatAssistant.js';
+
+// Import handlers for notifications and simulations
+import { setupNotifikasiHandlers } from './js/notificationHandlers.js';
+import { setupSimulasiHandlers } from './js/simulationHandlers.js';
+
+// Import export functionality
+import { createExportUI, initExportUI } from './js/exportUI.js';
 
 /**
  * Setup mobile menu toggle
@@ -39,6 +50,21 @@ function setupSmoothScrolling() {
             }
         });
     });
+}
+
+/**
+ * Setup Chat Assistant
+ */
+function setupChatAssistant() {
+    console.log('Setting up SmartSaku Chat Assistant...');
+
+    try {
+        // Initialize chat assistant on all pages
+        window.chatAssistant = new ChatAssistant();
+        console.log('Chat Assistant successfully initialized');
+    } catch (error) {
+        console.error('Error initializing Chat Assistant:', error);
+    }
 }
 
 /**
@@ -92,6 +118,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Setup global utilities
     setupGlobalUtils();
 
+    // Setup chat assistant
+    setupChatAssistant();
+
     // Redirect ke home page jika di root
     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
         window.location.href = '/src/templates/home.html';
@@ -100,4 +129,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Log untuk debugging
     console.log('Current path:', window.location.pathname);
     console.log('User logged in:', AuthService.sudahLogin());
+
+    // Setup event listener for the laporan section to initialize export UI
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (navLinks) {
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-section') === 'laporan') {
+                link.addEventListener('click', function () {
+                    // Create the export UI when the laporan section is shown
+                    setTimeout(() => {
+                        createExportUI();
+
+                        // Initialize the export UI with the controller if available
+                        if (window.dashboardController) {
+                            initExportUI(window.dashboardController);
+                        }
+                    }, 100);
+                });
+            }
+        });
+    }
 });

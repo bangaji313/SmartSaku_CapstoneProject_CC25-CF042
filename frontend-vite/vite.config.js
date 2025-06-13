@@ -23,15 +23,13 @@ export default defineConfig({
             '@images': resolve(__dirname, 'src/images'),
             '@templates': resolve(__dirname, 'src/templates'),
         },
-    },
-
-    // Konfigurasi server development
+    },    // Konfigurasi server development
     server: {
         port: 3001,
         open: true, // Buka browser otomatis
         proxy: {
             '/api': {
-                target: 'http://localhost:3000',
+                target: 'http://202.10.35.227',
                 changeOrigin: true,
                 secure: false
             }

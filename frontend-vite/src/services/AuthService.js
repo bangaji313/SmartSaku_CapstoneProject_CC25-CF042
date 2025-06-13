@@ -45,7 +45,7 @@ class AuthService {
      */
     static async loginFallback(kredensial) {
         try {
-            const response = await fetch('http://localhost:3000/api/user/login', {
+            const response = await fetch('http://202.10.35.227/api/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,7 +110,10 @@ class AuthService {
      */
     static async registerFallback(dataUser) {
         try {
-            const response = await fetch('http://localhost:3000/api/user/register', {
+            // Alternatif CORS proxy yang berbeda
+            const corsProxy = 'https://api.allorigins.win/raw?url=';
+            const url = encodeURIComponent('http://202.10.35.227/api/user/register');
+            const response = await fetch(corsProxy + url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

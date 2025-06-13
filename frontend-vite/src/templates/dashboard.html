@@ -2,18 +2,28 @@
 <html lang="id">  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboa    <!-- Main Content -->    <div class="main-content flex-1        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 mb-1">lg:pl-1 bg-gray-50">
-      <!-- Header -->
-      <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
-        <div class="flex items-center justify-between px-3 py-2 max-w-7xl mx-auto"> SmartSaku</title>
+    <title>Dashboard SmartSaku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="/src/css/dashboard.css" />
-    <!-- Suppress Tailwind CDN warning in console -->
-    <style>
+
+    <!-- Suppress Tailwind CDN warning in console -->    <style>
       /* Suppress warnings */
       .suppress-warnings {
         display: none;
+      }
+      
+      /* Make transaction button more visible */
+      #btnTambahTransaksi {
+        position: relative;
+        z-index: 5;
+        font-weight: 700;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      
+      #btnTambahTransaksi:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
       }
     </style>
     <script>
@@ -21,7 +31,7 @@
         theme: {
           extend: {
             colors: {
-              primary: "#1E40AF",
+              primary: "#60A5FA",
               secondary: "#3B82F6",
               accent: "#60A5FA",
               light: "#F8FAFC",
@@ -63,9 +73,7 @@
             </div>
             <h1 class="text-xl font-bold text-white">SmartSaku</h1>
           </div>
-        </div>
-
-        <!-- Navigation -->        <nav class="flex-1 px-4 py-6 space-y-2">
+        </div>        <!-- Navigation -->        <nav class="flex-1 px-4 py-6 space-y-2">
           <a
             href="#dashboard"
             data-section="dashboard"
@@ -105,6 +113,48 @@
               ></path>
             </svg>
             Transaksi
+          </a>
+          <a
+            href="#notifikasi"
+            data-section="notifikasi"
+            class="nav-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-primary hover:text-white transition-colors"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              ></path>
+            </svg>
+            Notifikasi
+            <span class="ml-auto bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">3</span>
+          </a>
+          <a
+            href="#simulasi"
+            data-section="simulasi"
+            class="nav-link flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-primary hover:text-white transition-colors"
+          >
+            <svg
+              class="w-5 h-5 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+              ></path>
+            </svg>
+            Simulasi
           </a>
           <a
             href="#laporan"
@@ -221,7 +271,7 @@
               id="btnTambahTransaksiDashboard"
               class="mt-3 md:mt-0 bg-primary text-white px-5 py-2 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 text-sm"
             >
-              + Tambah Transaksi
+              + Tambah Pendapatan
             </button>
           </div>
         </div>        <!-- Stats Cards -->
@@ -397,9 +447,10 @@
               </div>
             </div>
           </div>
-        </div>        <!-- AI Recommendations & Anomaly Detection -->
+        </div>        
+        <!-- AI Recommendations & Anomaly Detection -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
-          <!-- 2/3 AI Recommendations -->
+          <!-- 2/3 AI Recommendations & Predictions -->
           <div
             class="lg:col-span-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-md overflow-hidden"
           >
@@ -420,90 +471,81 @@
                     d="M13 10V3L4 14h7v7l9-11h-7z"
                   ></path>
                 </svg>
-                AI Recommendations
+                AI Insights
               </h3>
               <div class="space-y-4">
-                <!-- Recommendation 1 -->
-                <div
-                  class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4"
-                >
-                  <div class="flex items-start">
-                    <div class="mr-4 mt-1">
-                      <div
-                        class="w-10 h-10 bg-blue-100 bg-opacity-30 rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-6 h-6 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                <!-- Recommendation Section -->
+                <div id="recommendation-container">
+                  <div
+                    class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4"
+                  >
+                    <div class="flex items-start">
+                      <div class="mr-4 mt-1">
+                        <div
+                          class="w-10 h-10 bg-blue-100 bg-opacity-30 rounded-full flex items-center justify-center"
                         >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                          ></path>
-                        </svg>
+                          <svg
+                            class="w-6 h-6 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <h4 class="text-white font-medium">
-                        Hemat 10% dengan kurangi konsumsi kopi bulan ini
-                      </h4>
-                      <p class="text-blue-100 text-sm mt-1">
-                        Potential savings: Rp 50.000
-                      </p>
-                      <button
-                        class="mt-3 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-sm px-3 py-1 rounded-full transition-colors"
-                      >
-                        Lihat Tips
-                      </button>
+                      <div>
+                        <h4 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Recommendation</h4>
+                        <p class="text-white font-medium" id="recommendation-text">
+                          Loading recommendation...
+                        </p>
+                        <p class="text-blue-100 text-xs mt-1">
+                          Smart spending patterns analysis
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <!-- Recommendation 2 -->
-                <div
-                  class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4"
-                >
-                  <div class="flex items-start">
-                    <div class="mr-4 mt-1">
-                      <div
-                        class="w-10 h-10 bg-yellow-100 bg-opacity-30 rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-6 h-6 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                
+                <!-- Prediction Section -->
+                <div id="prediction-container">
+                  <div
+                    class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4"
+                  >
+                    <div class="flex items-start">
+                      <div class="mr-4 mt-1">
+                        <div
+                          class="w-10 h-10 bg-purple-100 bg-opacity-30 rounded-full flex items-center justify-center"
                         >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          ></path>
-                        </svg>
+                          <svg
+                            class="w-6 h-6 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            ></path>
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <div class="flex items-center">
-                        <h4 class="text-white font-medium">
-                          Promo Transport Minggu Ini!
-                        </h4>
-                        <span
-                          class="ml-2 bg-yellow-400 text-xs text-yellow-800 px-2 py-0.5 rounded-full"
-                          >Promo</span
-                        >
+                      <div>
+                        <h4 class="text-white font-medium text-sm uppercase tracking-wider mb-1">Prediction</h4>
+                        <p class="text-white font-medium" id="prediction-text">
+                          Loading prediction data...
+                        </p>
+                        <p class="text-blue-100 text-xs mt-1">
+                          AI-powered financial insights
+                        </p>
                       </div>
-                      <p class="text-blue-100 text-sm mt-1">
-                        Gunakan kode "SMART" untuk diskon 25%
-                      </p>
-                      <button
-                        class="mt-3 bg-white bg-opacity-20 hover:bg-opacity-30 text-white text-sm px-3 py-1 rounded-full transition-colors"
-                      >
-                        Salin Kode
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -602,9 +644,8 @@
         <!-- Tab Navigation -->
         <div class="mb-6">
           <div class="flex space-x-1 bg-gray-100 p-1 rounded-lg">
-            <button
-              id="tabPemasukan"
-              class="tab-button flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors bg-white text-primary shadow-sm"
+            <button              id="tabPemasukan"
+              class="tab-button flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors bg-white text-emerald-600 shadow-sm border border-emerald-100"
             >
               Pemasukan
             </button>
@@ -615,12 +656,11 @@
               Pengeluaran
             </button>
           </div>
-        </div>
-        <!-- Add Transaction Button -->
+        </div>        <!-- Add Transaction Button -->
         <div class="mb-6">
           <button
             id="btnTambahTransaksi"
-            class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 stats-card"
+            class="bg-gradient-to-r from-emerald-500 to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 border border-emerald-600"
           >
             + Tambah Transaksi
           </button>
@@ -631,6 +671,311 @@
           <div class="p-6">
             <div id="daftarTransaksi" class="space-y-4">
               <!-- Daftar transaksi akan dimuat di sini -->
+            </div>
+          </div>
+        </div>      </div>
+
+      <!-- Notifikasi Section -->
+      <div id="notifikasiSection" class="section-content p-6 hidden">
+        <h2 class="text-2xl font-bold mb-4">Notifikasi</h2>
+        
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+          <!-- Unread notification header -->
+          <div class="bg-gray-50 p-4 border-b border-gray-200">
+            <h3 class="font-semibold text-gray-700">Notifikasi Baru <span class="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full ml-2">3</span></h3>
+          </div>
+          
+          <!-- Notification list -->
+          <div class="divide-y divide-gray-200">
+            <!-- Notification item 1 -->
+            <div class="p-4 bg-blue-50 hover:bg-blue-100 transition-colors">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-3">
+                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium text-gray-800">Pengingat Pembayaran</p>
+                  <p class="text-sm text-gray-600 mt-1">Tagihan listrik akan jatuh tempo dalam 3 hari</p>
+                  <p class="text-xs text-gray-500 mt-1">Hari ini, 10:30</p>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Notification item 2 -->
+            <div class="p-4 bg-green-50 hover:bg-green-100 transition-colors">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-green-100 rounded-full p-2 mr-3">
+                  <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium text-gray-800">Transaksi Berhasil</p>
+                  <p class="text-sm text-gray-600 mt-1">Transfer sebesar Rp 500.000 berhasil dilakukan</p>
+                  <p class="text-xs text-gray-500 mt-1">Kemarin, 15:45</p>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Notification item 3 -->
+            <div class="p-4 bg-yellow-50 hover:bg-yellow-100 transition-colors">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-yellow-100 rounded-full p-2 mr-3">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium text-gray-800">Peringatan Anggaran</p>
+                  <p class="text-sm text-gray-600 mt-1">Anda telah menggunakan 80% anggaran makan bulan ini</p>
+                  <p class="text-xs text-gray-500 mt-1">2 hari yang lalu</p>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Read notification header -->
+          <div class="bg-gray-50 p-4 border-b border-t border-gray-200">
+            <h3 class="font-semibold text-gray-700">Notifikasi Sebelumnya</h3>
+          </div>
+          
+          <!-- More notification items (read) -->
+          <div class="divide-y divide-gray-200">
+            <div class="p-4 hover:bg-gray-50 transition-colors">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 bg-gray-200 rounded-full p-2 mr-3">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <p class="font-medium text-gray-700">Tujuan Tabungan Tercapai</p>
+                  <p class="text-sm text-gray-600 mt-1">Selamat! Anda telah mencapai tujuan tabungan "Liburan"</p>
+                  <p class="text-xs text-gray-500 mt-1">5 hari yang lalu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simulasi Section -->
+      <div id="simulasiSection" class="section-content p-6 hidden">
+        <h2 class="text-2xl font-bold mb-4">Simulasi Keuangan</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Simulasi Tabungan -->
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Simulasi Tabungan</h3>
+            
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Jumlah Tabungan Awal</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">Rp</span>
+                  </div>
+                  <input 
+                    type="number" 
+                    id="tabunganAwal" 
+                    class="block w-full pl-12 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="1000000"
+                  >
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Setoran Bulanan</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">Rp</span>
+                  </div>
+                  <input 
+                    type="number" 
+                    id="setoranBulanan" 
+                    class="block w-full pl-12 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="500000"
+                  >
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Bunga Tahunan (%)</label>
+                <div class="relative">
+                  <input 
+                    type="number" 
+                    id="bungaTahunan" 
+                    class="block w-full pl-3 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="3.5"
+                    step="0.1"
+                  >
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Jangka Waktu</label>
+                <div class="flex space-x-4">
+                  <div class="flex-1">
+                    <input 
+                      type="number" 
+                      id="jangkaWaktu" 
+                      class="block w-full pl-3 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                      placeholder="0"
+                      value="5"
+                      min="1"
+                      max="50"
+                    >
+                  </div>
+                  <div class="w-1/2">
+                    <select 
+                      id="jangkaWaktuUnit" 
+                      class="block w-full py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                    >
+                      <option value="tahun">Tahun</option>
+                      <option value="bulan">Bulan</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="pt-4">
+                <button 
+                  type="button" 
+                  id="hitungTabungan"
+                  class="w-full bg-primary text-white p-2 rounded-md hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50"
+                >
+                  Hitung Hasil Tabungan
+                </button>
+              </div>
+            </form>
+            
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200" id="hasilSimulasiTabungan">
+              <h4 class="font-semibold text-gray-700 mb-2">Hasil Simulasi</h4>
+              <div class="grid grid-cols-2 gap-y-2 text-sm">
+                <div>Total Setoran:</div>
+                <div class="font-medium">Rp 31.000.000</div>
+                <div>Bunga Diperoleh:</div>
+                <div class="font-medium">Rp 2.800.000</div>
+                <div>Total Akhir:</div>
+                <div class="font-semibold text-lg text-primary">Rp 33.800.000</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Simulasi Investasi -->
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Simulasi Investasi</h3>
+            
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Modal Awal</label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">Rp</span>
+                  </div>
+                  <input 
+                    type="number" 
+                    id="modalAwal" 
+                    class="block w-full pl-12 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="10000000"
+                  >
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Return Tahunan (%)</label>
+                <div class="relative">
+                  <input 
+                    type="number" 
+                    id="returnTahunan" 
+                    class="block w-full pl-3 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="12"
+                    step="0.1"
+                  >
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Jangka Waktu (tahun)</label>
+                <input 
+                  type="number" 
+                  id="jangkaWaktuInvestasi" 
+                  class="block w-full pl-3 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                  placeholder="0"
+                  value="10"
+                  min="1"
+                  max="50"
+                >
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Inflasi Perkiraan (%)</label>
+                <div class="relative">
+                  <input 
+                    type="number" 
+                    id="inflasiRate" 
+                    class="block w-full pl-3 pr-12 py-2 sm:text-sm border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary" 
+                    placeholder="0"
+                    value="3.5"
+                    step="0.1"
+                  >
+                  <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <span class="text-gray-500 sm:text-sm">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="pt-4">
+                <button 
+                  type="button" 
+                  id="hitungInvestasi"
+                  class="w-full bg-primary text-white p-2 rounded-md hover:bg-secondary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50"
+                >
+                  Hitung Proyeksi Investasi
+                </button>
+              </div>
+            </form>
+            
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200" id="hasilSimulasiInvestasi">
+              <h4 class="font-semibold text-gray-700 mb-2">Hasil Proyeksi</h4>
+              <div class="grid grid-cols-2 gap-y-2 text-sm">
+                <div>Modal Awal:</div>
+                <div class="font-medium">Rp 10.000.000</div>
+                <div>Nilai Akhir Nominal:</div>
+                <div class="font-medium">Rp 31.058.482</div>
+                <div>Nilai Akhir Riil:</div>
+                <div class="font-medium">Rp 21.900.463</div>
+                <div>Return Total:</div>
+                <div class="font-semibold text-lg text-primary">210.58%</div>
+              </div>
             </div>
           </div>
         </div>
@@ -732,9 +1077,8 @@
 
           <div class="flex space-x-3 pt-4">
             <button
-              type="submit"
-              id="btnSimpanTransaksi"
-              class="flex-1 bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+              type="submit"              id="btnSimpanTransaksi"
+              class="flex-1 bg-gradient-to-r from-emerald-500 to-emerald-700 text-white py-3 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 border border-emerald-600"
             >
               Simpan
             </button>
@@ -910,8 +1254,8 @@
         adjustLayout();
 
         // Close sidebar when window is resized
-        window.addEventListener("resize", adjustLayout);
-      });
+        window.addEventListener("resize", adjustLayout);      });
     </script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

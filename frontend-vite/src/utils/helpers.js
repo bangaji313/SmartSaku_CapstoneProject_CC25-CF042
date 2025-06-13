@@ -195,6 +195,46 @@ class LoadingUtil {
             }
         }
     }
+
+    /**
+     * Tampilkan loading indicator
+     * @param {string} pesan - Pesan loading yang akan ditampilkan
+     */
+    static tampilkan(pesan = 'Loading...') {
+        // Hapus loading sebelumnya jika ada
+        this.sembunyikan();
+
+        // Buat elemen loading baru
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.id = 'loadingOverlay';
+        loadingOverlay.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+
+        const loadingSpinner = document.createElement('div');
+        loadingSpinner.className = 'bg-white p-6 rounded-lg shadow-xl flex flex-col items-center';
+
+        const spinner = document.createElement('div');
+        spinner.className = 'animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mb-4';
+
+        const pesanElement = document.createElement('div');
+        pesanElement.textContent = pesan;
+        pesanElement.className = 'text-gray-800';
+
+        loadingSpinner.appendChild(spinner);
+        loadingSpinner.appendChild(pesanElement);
+        loadingOverlay.appendChild(loadingSpinner);
+
+        document.body.appendChild(loadingOverlay);
+    }
+
+    /**
+     * Sembunyikan loading indicator
+     */
+    static sembunyikan() {
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        if (loadingOverlay) {
+            loadingOverlay.remove();
+        }
+    }
 }
 
 export { NotifikasiUtil, ValidasiUtil, LoadingUtil };
