@@ -17,6 +17,9 @@
       <li><a href="#add-transaction">➕ Add Transaction</a></li>
       <li><a href="#delete-transaction">🗑️ Delete Transaction</a></li>
       <li><a href="#update-transaction">🔄 Update Transaction</a></li>
+      <li><a href="#chat-api">💬 Chat API</a></li>
+      <li><a href="#recommendation-api">💡 Recommendation API</a></li>
+      <li><a href="#prediction-api">🔮 Prediction API</a></li>
     </ul>
   </div>
 
@@ -174,6 +177,54 @@
   }
 }</pre>
     </div>
-  </div>
+    <div class="section" id="chat-api">
+      <h2>1. 💬 Chat API</h2>
+      <p><strong>Endpoint:</strong> <code>POST http://localhost:3000/chat</code></p>
+      <p><strong>Deskripsi:</strong> Mengirim pesan ke chatbot untuk mendapatkan respons terkait keuangan.</p>
+    
+      <p><strong>Request Headers:</strong></p>
+      <pre>{
+      "Content-Type": "application/json"
+}</pre>
+    
+      <p><strong>Request Body:</strong></p>
+      <pre>{
+      "message": "gimana cara nabung?"
+}</pre>
+    
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+      "reply": "Hmm, aku masih belajar nih. Bisa coba tanya yang lain terkait tips keuangan mahasiswa?"
+}</pre>
+    </div>
+  
+    <div class="section" id="recommendation-api">
+      <h2>2. 💡 Recommendation API</h2>
+      <p><strong>Endpoint:</strong> <code>GET http://localhost:3000/recommendation</code></p>
+      <p><strong>Deskripsi:</strong> Mendapatkan rekomendasi keuangan berdasarkan pola belanja.</p>
+    
+      <p><strong>Request Headers:</strong></p>
+      <pre>Tidak diperlukan</pre>
+    
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+      "rekomendasi": "Hasil Rekomendasi: Pola belanjamu sudah efisien. Mantap! Kamu bisa alokasikan sisa uangnya untuk menabung atau investasi."
+}</pre>
+    </div>
+  
+    <div class="section" id="prediction-api">
+      <h2>3. 🔮 Prediction API</h2>
+      <p><strong>Endpoint:</strong> <code>GET http://localhost:3000/prediction</code></p>
+      <p><strong>Deskripsi:</strong> Memastikan bahwa model dan scaler berhasil dimuat untuk prediksi.</p>
+    
+      <p><strong>Request Headers:</strong></p>
+      <pre>Tidak diperlukan</pre>
+    
+      <p><strong>Response Body:</strong></p>
+      <pre>{
+      "hasil": "Prediksi: Model dan scaler berhasil dimuat."
+}</pre>
+    </div>
+  </div>  
 </body>
 </html>

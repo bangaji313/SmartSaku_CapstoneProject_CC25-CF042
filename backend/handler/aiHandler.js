@@ -79,9 +79,7 @@ export const predictionHandler = async (req, h) => {
         const prediction = match ? match[1] : null;
 
         resolve({
-          input: spendingArray,
-          prediction: prediction ? parseFloat(prediction.replace(/,/g, "")) : null,
-          raw_output: result,
+          hasil: result.split("\n")[0],
         });
       } else {
         resolve({

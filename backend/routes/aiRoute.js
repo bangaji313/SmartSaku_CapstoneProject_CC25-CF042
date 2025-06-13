@@ -7,7 +7,7 @@ const aiRoutes = [
     handler: chatHandler,
   },
   {
-    method: "POST",
+    method: "GET",
     path: "/recommendation",
     handler: recommendationHandler,
   },
