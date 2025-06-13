@@ -19,7 +19,7 @@
 
 Aplikasi ini dibangun dengan arsitektur modern yang memisahkan antara klien (*frontend*), server (*backend*), dan layanan *machine learning*.
 
-![Arsitektur Sistem](https://user-images.githubusercontent.com/10057575/167321577-6285a855-3859-4089-813a-2321287c29e1.png)
+![Arsitektur Sistem](https://drive.google.com/file/d/16aOd2z4yfcNRfXthH8vbCWSbcNT2qYyX/view?usp=sharing)
 *(Catatan: Link gambar ini adalah placeholder, bisa diganti dengan diagram arsitektur tim Anda jika ada)*
 
 **Tech Stack yang Digunakan:**
