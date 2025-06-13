@@ -19,7 +19,7 @@
 
 Aplikasi ini dibangun dengan arsitektur modern yang memisahkan antara klien (*frontend*), server (*backend*), dan layanan *machine learning*.
 
-![Arsitektur Sistem](./docs/images/Arsitektur%20Sistem%20SmartSaku.drawio.png)
+![Arsitektur Sistem](./images/Arsitektur%20Sistem%20SmartSaku.drawio.png)
 
 **Tech Stack yang Digunakan:**
 
