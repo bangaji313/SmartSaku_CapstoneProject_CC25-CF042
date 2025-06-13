@@ -3,14 +3,11 @@ import numpy as np
 import pickle
 import sys
 import os
-import h5py
 
-# --- Muat semua file yang dibutuhkan ---
+# --- Muat semua artifak yang dibutuhkan ---
 try:
-    # Dapatkan path direktori di mana script ini berada
+    # Menggunakan path absolut untuk memastikan file ditemukan
     base_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Gabungkan path direktori dengan nama file-file artifak
     model_path = os.path.join(base_dir, 'model_prediksi.h5')
     scaler_path = os.path.join(base_dir, 'scaler_prediksi.pkl')
 
@@ -28,20 +25,20 @@ def predict_next_day_spending(last_7_days_spending):
     - last_7_days_spending: sebuah list atau array berisi 7 angka pengeluaran.
     """
     if not all([model, scaler]):
-        # Mengembalikan None jika model gagal dimuat, agar backend bisa menangani error
         return None
 
     try:
-        # 1. Pastikan input adalah numpy array
-        input_array = np.array(last_7_days_spending, dtype=float).reshape(1, -1)
+        # 1. Ubah input list menjadi numpy array dengan bentuk (7, 1) agar bisa di-scale
+        input_array = np.array(last_7_days_spending, dtype=float).reshape(-1, 1)
 
-        # 2. Lakukan scaling pada data input menggunakan scaler yang SAMA saat training
+        # 2. Lakukan scaling pada data input menggunakan scaler yang sama
         input_scaled = scaler.transform(input_array)
         
         # 3. Reshape data agar sesuai dengan input model (1 sampel, 7 fitur/timestep)
-        input_reshaped = input_scaled.reshape(1, 7)
+        # Kita transpose dari (7, 1) menjadi (1, 7)
+        input_reshaped = input_scaled.T
 
-        # 4. Lakukan prediksi
+        # 4. Lakukan prediksi (hasilnya masih dalam skala 0-1)
         prediction_scaled = model.predict(input_reshaped)
 
         # 5. Kembalikan prediksi ke skala Rupiah asli (inverse transform)
@@ -56,10 +53,7 @@ def predict_next_day_spending(last_7_days_spending):
 
 # === CONTOH PENGGUNAAN (UNTUK DICOBA OLEH BACKEND) ===
 if __name__ == '__main__':
-    # Simulasi data yang diterima dari request API
-    # Backend mengirim 7 angka pengeluaran terakhir sebagai argumen command line
     if len(sys.argv) > 1:
-        # Ambil semua argumen setelah nama script, ubah ke float
         try:
             # Contoh input dari terminal: python get_prediction.py 50000 25000 0 15000 120000 45000 30000
             input_history = [float(arg) for arg in sys.argv[1:]]
@@ -69,12 +63,12 @@ if __name__ == '__main__':
             prediksi = predict_next_day_spending(input_history)
             
             if prediksi is not None:
-                print(f"Histori Input: {input_history}")
-                print(f"Prediksi Pengeluaran Besok: {prediksi:,.0f}")
+                # Mencetak hanya angka prediksi agar mudah ditangkap oleh script backend
+                print(prediksi)
             else:
-                print("Gagal melakukan prediksi.")
+                print("Error: Gagal melakukan prediksi.", file=sys.stderr)
 
         except ValueError as ve:
-            print(f"Input Error: {ve}")
+            print(f"Input Error: {ve}", file=sys.stderr)
     else:
-        print("Cara penggunaan: python get_prediction.py <7 angka histori pengeluaran dipisah spasi>")
+        print("Cara penggunaan: python get_prediction.py <7 angka histori pengeluaran dipisah spasi>", file=sys.stderr)
