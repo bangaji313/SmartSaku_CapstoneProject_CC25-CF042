@@ -3,6 +3,7 @@ import Inert from "@hapi/inert";
 import userRotues from "./routes/userRoute.js";
 import connectDB from "./utils/db.js";
 import transactionRoutes from "./routes/transactionRoute.js";
+import aiRoutes from "./routes/aiRoute.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -34,7 +35,7 @@ server.route([
   },
 ]);
 
-server.route([...userRotues, ...transactionRoutes]);
+server.route([...userRotues, ...transactionRoutes, ...aiRoutes]);
 await connectDB();
 await server.start();
 console.log("Server berjalan pada:", server.info.uri);

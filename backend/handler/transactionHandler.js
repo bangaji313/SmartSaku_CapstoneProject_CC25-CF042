@@ -82,7 +82,7 @@ export const deleteTransactionHandler = async (request, h) => {
     const transaction = data[type].id(transactionId);
     if (!transaction) return h.response({ message: "Transaction not found" }).code(404);
 
-    transaction.remove();
+    data[type].pull({ _id: transactionId });
     await data.save();
 
     return h.response({ message: "Transaction deleted" }).code(200);
