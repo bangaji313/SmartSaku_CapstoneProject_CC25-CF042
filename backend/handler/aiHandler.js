@@ -41,7 +41,8 @@ export const recommendationHandler = async (req, h) => {
     });
 
     py.on("close", (code) => {
-      resolve({ rekomendasi: result.trim() });
+      const arr = result.split("\n");
+      resolve({ rekomendasi: arr[3] });
     });
   });
 };
@@ -56,6 +57,7 @@ export const predictionHandler = async (req, h) => {
 
   return new Promise((resolve, reject) => {
     const args = spendingArray.map(String);
+    console.log(args);
     const python = spawn("python3", ["../MachineLearning-Yulia/get_prediction.py", ...args]);
 
     let result = "";
